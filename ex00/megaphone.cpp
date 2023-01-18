@@ -6,13 +6,13 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:37:50 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/18 11:40:37 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:45:58 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <locale>
+#include <iostream> // std::cout
+#include <string>  //std::string
+#include <locale> // std::toupper
 
 int	main(int argc, char **argv)
 {
@@ -28,7 +28,6 @@ int	main(int argc, char **argv)
 		while (i < argc) // while i compteur is under nbr of total arguments
 			{
 				std::string str(argv[i++]);
-				
 				size = 0;
 				while (size < str.length())
 					std::cout << (char)std::toupper(str[size++]); // need to cast into char or we get int
