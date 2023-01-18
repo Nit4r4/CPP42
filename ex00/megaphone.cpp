@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:37:50 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/18 11:45:58 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:57:34 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		i = 1; // for argv[1] beacause argv[0] is the executable
-		while (i < argc) // while i compteur is under nbr of total arguments
+		while (i < argc) // while i counter is under nbr of total arguments
 			{
 				std::string str(argv[i++]);
 				size = 0;
