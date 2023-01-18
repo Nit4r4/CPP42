@@ -3,25 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 09:37:50 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/17 13:25:45 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:40:37 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
+#include <locale>
 
-int	main()
+int	main(int argc, char **argv)
 {
-	int	i = 0;
-	char	str[45] = "shhhhh... I think the students are asleep...";
-	//char	*str_maj = "SHHHHH... I THINK THE STUDENTS ARE ASLEEP...";
+	int		i;
+	char	*str;
+	size_t	size;
 	
-	// std :: cout << toupper(*str) << std :: endl;
-	while (str[i])
-		i++;
-	return i;
-	std :: cout << str[i] << std :: endl;
-	return 0;
+	if (argc == 1) // if only ./megaphone
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+	else
+	{
+		i = 1; // for argv[1] beacause argv[0] is the executable
+		while (i < argc) // while i compteur is under nbr of total arguments
+			{
+				std::string str(argv[i++]);
+				
+				size = 0;
+				while (size < str.length())
+					std::cout << (char)std::toupper(str[size++]); // need to cast into char or we get int
+			}
+			std::cout << std::endl;
+	}
+	return (0);
 }

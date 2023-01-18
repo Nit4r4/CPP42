@@ -60,6 +60,14 @@ fclean: 	clean
 
 re:			fclean all
 
+test:			$(NAME)
+				@echo ""
+				./megaphone "shhhhh... I think the students are asleep..."
+				@echo ""
+				./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
+				@echo ""
+				./megaphone
+				@echo ""
 # leak: 		all
 # 					leaks -atExit -- ./$(NAME) map/map.cub
 
