@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/24 15:41:23 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:56:32 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PhoneBook::PhoneBook() {
 	std::cout << "PhoneBook Constructor called" << std::endl;
 	this->_countContact = 0; //initialisation du pointeur compteur de contact de la classe PhoneBook en private
+	std::
 }
 
 PhoneBook::~PhoneBook() {
@@ -65,9 +66,7 @@ void	PhoneBook::addContact(void) { //buildDataBasePhoneBook
 	}
 }
 
-void	PhoneBook::printSearchContact(int i) {
-	if (this->contacts[i].getFirstName().empty())
-		std::cout << NO_CONTACT << std::endl;
+void	PhoneBook::printSearchContact(int i) { //put contacts into array contacts[]
 	std::cout << "First name : " << this->contacts[i].getFirstName() << std::endl;
 	std::cout << "Last name : " << this->contacts[i].getLastName() << std::endl;
 	std::cout << "Nickname : " << this->contacts[i].getNickname() << std::endl;
@@ -75,8 +74,28 @@ void	PhoneBook::printSearchContact(int i) {
 	std::cout << "Darkest secret, shhh! : " << this->contacts[i].getDarkestSecret() << std::endl;
 }
 
+void	buildIndexFormat(std::string info) {
+	std::cout << std::setfill('-') << std::setw(10) << std::endl;
+	std::cout << "|";
+	std::cout << std::setfill(' ') << std::setw(10) << std::endl;
+	if (info.length() > 10) {
+		info.resize(9);
+		info.append(1u, '.');
+	}
+	else
+		std::cout << std::right << info << "|";
+	std::cout << std::setfill('-') << std::setw(10);
+}
 
-buildIndex
-
-setExitWord
-clear string .clear
+void	PhoneBook::buildIndexInfos(int i) {
+	if (this->contacts[i].getFirstName().empty())
+		std::cout << NO_CONTACT << std::endl; // besoin d un return apres ? ou d un continue
+	std::cout << std::setfill('-') << std::setw(10);
+	std::cout << std::left << "|" << I << FN << LN << NN << std::endl;
+	std::cout << std::setfill(' ') << std::setw(10) << i << "│" << std::endl;
+	std::cout << std::setfill('-') << std::setw(10);
+	buildIndexFormat(this->contacts[i].getFirstName());
+	buildIndexFormat(this->contacts[i].getLastName());
+	buildIndexFormat(this->contacts[i].getNickname());
+	std::cout << std::endl;
+}

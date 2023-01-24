@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:26:53 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/24 15:18:33 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:49:55 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define SEARCH "SEARCH"
 # define EXIT "EXIT"
 # define NO_CONTACT "This entry does not have a registered contact, you can add one by taping ADD"
+# define I "  INDEX   |"
+# define FN " 1ST NAME |"
+# define LN " LAST NAME|"
+# define NN " NICKNAME |"
 
 class PhoneBook
 {
@@ -33,6 +37,7 @@ public:
 	int		getCountedContact(void) const;     //fonction
 	void	addContact(void);
 	void	printSearchContact(int i);
+	void	buildIndexInfos(int i);
 
 private:
 
