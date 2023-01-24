@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:41:07 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/18 16:05:45 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:37:54 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ public:
 	~Contact(void);    //destructor
 
 	/* FUNCTIONS */
-	void	setFirstName(std::string str);						// setter ou mutateur
+	void	setFirstName(std::string str);						// setter ou mutateur (definir, creer)
 	void	setLastName(std::string str);						// setter ou mutateur
 	void	setNickname(std::string str);						// setter ou mutateur
 	void	setPhoneNumber(std::string str);					// setter ou mutateur
 	void	setDarkestSecret(std::string str);					// setter ou mutateur
 
-	std::string	getFirstName(void) const;						// getter ou accesseur
+	std::string	getFirstName(void) const;						// getter ou accesseur (obtenir, utiliser)
 	std::string getNickname(void) const;						// getter ou accesseur
 	std::string getLastName(void) const;						// getter ou accesseur
 	std::string getPhoneNumber(void) const;						// getter ou accesseur
