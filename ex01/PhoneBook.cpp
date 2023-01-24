@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/24 17:56:32 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:16:18 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 PhoneBook::PhoneBook() {
 	std::cout << "PhoneBook Constructor called" << std::endl;
 	this->_countContact = 0; //initialisation du pointeur compteur de contact de la classe PhoneBook en private
-	std::
+	std::cout << std::setfill('-') << std::setw(50) << std::endl;
+	std::cout << "|" << std::internal << std::setfill(' ') << std::setw(50) << "My Awesome PhoneBook" << "|" << std::endl;
+	std::cout << "|" << std::internal << "User information :" << "|" << std::endl;
+	std::cout << "|" << std::internal << "to add a contact please type ADD" << "|" << std::endl;
+	std::cout << "|" << std::internal << "to search a contact please type SEARCH" << "|" << std::endl;
+	std::cout << "|" << std::internal << "to exit this Awesome PhoneBook please type EXIT" << "|" << std::endl;
+	std::cout << std::setfill('-') << std::setw(50) << std::endl;
 }
 
 PhoneBook::~PhoneBook() {
