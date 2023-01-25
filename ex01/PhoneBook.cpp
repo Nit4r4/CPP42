@@ -6,26 +6,32 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/24 18:16:18 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:00:21 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {
-	std::cout << "PhoneBook Constructor called" << std::endl;
+	std::cout << "\e[32m***My Awsome PhoneBook start with success***\e[39m" << std::endl; //constructor call
 	this->_countContact = 0; //initialisation du pointeur compteur de contact de la classe PhoneBook en private
-	std::cout << std::setfill('-') << std::setw(50) << std::endl;
-	std::cout << "|" << std::internal << std::setfill(' ') << std::setw(50) << "My Awesome PhoneBook" << "|" << std::endl;
-	std::cout << "|" << std::internal << "User information :" << "|" << std::endl;
-	std::cout << "|" << std::internal << "to add a contact please type ADD" << "|" << std::endl;
-	std::cout << "|" << std::internal << "to search a contact please type SEARCH" << "|" << std::endl;
-	std::cout << "|" << std::internal << "to exit this Awesome PhoneBook please type EXIT" << "|" << std::endl;
-	std::cout << std::setfill('-') << std::setw(50) << std::endl;
+	std::cout << " " << std::setfill('-') << std::setw(51) << "\n";
+	std::string titre = "My Awesome PhoneBook";
+	for (int i=0; i<titre.length(); ++i)
+	{
+	titre[i] = ::toupper(titre[i]);
+	}
+	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << titre << "|" << std::endl;
+	std::cout << "|" << std::setfill(' ') << std::setw(51) << std::right << "|" << std::endl;
+	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << "User information :" << "|" << std::endl;
+	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << "to add a contact please type ADD" << "|" << std::endl;
+	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << "to search a contact please type SEARCH" << "|" << std::endl;
+	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << "to exit this Awesome PhoneBook please type EXIT" << "|";
+	std::cout << " " << std::setfill('-') << std::setw(51) << "\n" << std::endl;
 }
 
 PhoneBook::~PhoneBook() {
-	std::cout << "PhoneBook Destructor called" << std::endl;
+	std::cout << "\e[32m***My Awesome PhoneBook ended with success***\e[39m" << std::endl; //destructor call
 }
 
 int	PhoneBook::getCountedContact() const {
@@ -39,11 +45,11 @@ std::string	getStreamInfos(std::string str) {
 	std::getline(std::cin, info, '\n'); // std::getline(std::cin, infos, '\n'); '\n' pour la touche ENTREE ?
 	if (std::cin.fail()) {
 		std::cout << "An error has occured" << std::endl;
-		return;
+		exit (0);
 	}
 	if (!info.empty()) //a modifier si quelque chose ne fonctionne pas comme prevu
 		return info;
-	return;
+	return (0);
 }
 
 void	PhoneBook::addContact(void) { //buildDataBasePhoneBook

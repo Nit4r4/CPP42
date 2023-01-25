@@ -6,18 +6,18 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:45 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/24 14:36:27 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:00:55 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact() {
-	std::cout << "Contact constructor called" << std::endl;
+	//std::cout << "Contact constructor called" << std::endl;
 }
 
 Contact::~Contact() {
-	std::cout << "Contact destructor called" << std::endl;
+	//std::cout << "Contact destructor called" << std::endl;
 }
 
 void	Contact::setFirstName(std::string str) {

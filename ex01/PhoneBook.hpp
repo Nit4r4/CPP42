@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:26:53 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/24 17:49:55 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:41:22 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <cctype>
 # include "Contact.hpp"
 
 # define ADD "ADD"

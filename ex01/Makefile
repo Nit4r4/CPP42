@@ -8,10 +8,9 @@ HIDDEN = \e[8m
 RESET = \e[0
 BLUE = \033[34m
 CYAN = \033[36m
-
 NAME = MyAwsomePhoneBook
 
-SRCS =	main.cpp
+SRCS =	main.cpp Contact.cpp PhoneBook.cpp
 OBJS 	= ${SRCS:.cpp=.o}
 MAIN	= main.cpp
 
