@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:30:35 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 11:53:08 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:58:00 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc)
 		return (1);
 	}
 	while (1) {
+		str.clear;
 		std::cout << "Type your command here: " << std::endl;
 		std::getline(std::cin, str, '\n');
 		if (str.compare(ADD) > 0 && str.compare(SEARCH) > 0 && str.compare(EXIT) > 0)

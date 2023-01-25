@@ -6,14 +6,14 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 12:00:21 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:57:39 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {
-	std::cout << "\e[32m***My Awsome PhoneBook start with success***\e[39m" << std::endl; //constructor call
+	std::cout << "\e[32m*** My Awsome PhoneBook start with success ***\e[39m" << std::endl; //constructor call
 	this->_countContact = 0; //initialisation du pointeur compteur de contact de la classe PhoneBook en private
 	std::cout << " " << std::setfill('-') << std::setw(51) << "\n";
 	std::string titre = "My Awesome PhoneBook";
@@ -31,7 +31,7 @@ PhoneBook::PhoneBook() {
 }
 
 PhoneBook::~PhoneBook() {
-	std::cout << "\e[32m***My Awesome PhoneBook ended with success***\e[39m" << std::endl; //destructor call
+	std::cout << "\e[32m*** My Awesome PhoneBook ended with success ***\e[39m" << std::endl; //destructor call
 }
 
 int	PhoneBook::getCountedContact() const {
@@ -100,14 +100,23 @@ void	buildIndexFormat(std::string info) {
 }
 
 void	PhoneBook::buildIndexInfos(int i) {
-	if (this->contacts[i].getFirstName().empty())
-		std::cout << NO_CONTACT << std::endl; // besoin d un return apres ? ou d un continue
-	std::cout << std::setfill('-') << std::setw(10);
-	std::cout << std::left << "|" << I << FN << LN << NN << std::endl;
-	std::cout << std::setfill(' ') << std::setw(10) << i << "│" << std::endl;
-	std::cout << std::setfill('-') << std::setw(10);
-	buildIndexFormat(this->contacts[i].getFirstName());
-	buildIndexFormat(this->contacts[i].getLastName());
-	buildIndexFormat(this->contacts[i].getNickname());
-	std::cout << std::endl;
+	if (i < 1 || i > 8) {
+		std::cout << "\033[34mPlease select a number between 1 and 8\e[39m" << std::endl;
+		std::cin >> i;
+		buildIndexInfos(i);
+	}
+	if (i > 0 && i < 9) {
+		if (this->contacts[i - 1].getFirstName().empty()) {
+			std::cout << NO_CONTACT << std::endl;
+			return;
+		}
+		std::cout << std::setfill('-') << std::setw(10);
+		std::cout << std::left << "|" << I << FN << LN << NN << std::endl;
+		std::cout << std::setfill(' ') << std::setw(10) << i << "│" << std::endl;
+		std::cout << std::setfill('-') << std::setw(10);
+		buildIndexFormat(this->contacts[i - 1].getFirstName());
+		buildIndexFormat(this->contacts[i - 1].getLastName());
+		buildIndexFormat(this->contacts[i - 1].getNickname());
+		std::cout << std::endl;
+	}
 }

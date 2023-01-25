@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:26:53 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 11:41:22 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:22:46 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define ADD "ADD"
 # define SEARCH "SEARCH"
 # define EXIT "EXIT"
-# define NO_CONTACT "This entry does not have a registered contact, you can add one by taping ADD"
+# define NO_CONTACT "\033[34mThis entry does not have a registered contact, you can add one by taping ADD\e[39m"
 # define I "  INDEX   |"
 # define FN " 1ST NAME |"
 # define LN " LAST NAME|"
