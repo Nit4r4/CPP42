@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 17:37:32 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:49:19 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,18 @@ void	PhoneBook::addContact(void) { //buildDataBasePhoneBook
 	this->contacts[_countContact].setPhoneNumber(info);
 	info = getStreamInfos("Please tell us your darkest secret : ");
 	this->contacts[_countContact].setDarkestSecret(info);
-	this->_countContact += 1;
-	if (_countContact > 8) {
-		this->contacts[0] = this->contacts[_countContact];
-		std::swap(contacts[0], contacts[1]);
-		std::swap(contacts[1], contacts[2]);
-		std::swap(contacts[2], contacts[3]);
-		std::swap(contacts[3], contacts[4]);
-		std::swap(contacts[4], contacts[5]);
-		std::swap(contacts[5], contacts[6]);
-		std::swap(contacts[6], contacts[7]);
-	}
+	this->_countContact = (this->_countContact + 1) % 8;
+	// this->_countContact += 1;
+	// if (_countContact > 8) {
+	// 	this->contacts[0] = this->contacts[_countContact];
+	// 	std::swap(contacts[0], contacts[1]);
+	// 	std::swap(contacts[1], contacts[2]);
+	// 	std::swap(contacts[2], contacts[3]);
+	// 	std::swap(contacts[3], contacts[4]);
+	// 	std::swap(contacts[4], contacts[5]);
+	// 	std::swap(contacts[5], contacts[6]);
+	// 	std::swap(contacts[6], contacts[7]);
+	// }
 }
 
 void	PhoneBook::printSearchContact(int i) { //put contacts into array contacts[]
