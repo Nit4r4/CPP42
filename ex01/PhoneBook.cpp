@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 12:57:39 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:37:53 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,20 @@ void	buildIndexFormat(std::string info) {
 }
 
 void	PhoneBook::buildIndexInfos(int i) {
+	int	j;
 	if (i < 1 || i > 8) {
 		std::cout << "\033[34mPlease select a number between 1 and 8\e[39m" << std::endl;
-		std::cin >> i;
-		buildIndexInfos(i);
+		//i &= ~(1 << 0);
+		j = i;
+		std::cin >> j;
+		buildIndexInfos(j);
 	}
 	if (i > 0 && i < 9) {
+		//i &= ~(1 << 0);
 		if (this->contacts[i - 1].getFirstName().empty()) {
 			std::cout << NO_CONTACT << std::endl;
-			return;
+			i = false;
+			return ;
 		}
 		std::cout << std::setfill('-') << std::setw(10);
 		std::cout << std::left << "|" << I << FN << LN << NN << std::endl;
@@ -120,3 +125,30 @@ void	PhoneBook::buildIndexInfos(int i) {
 		std::cout << std::endl;
 	}
 }
+
+// void	PhoneBook::buildIndexInfos(int i) {
+// 	bool isValid = false;
+// 	while (!isValid) {
+// 		std::cout << "\033[34mPlease select a number between 1 and 8\e[39m" << std::endl;
+// 		std::cin >> i;
+// 		if (i < 1 || i > 8) {
+// 			std::cout << "\033[34mPlease select a number between 1 and 8\e[39m" << std::endl;
+// 	}
+// 	else 
+// 		isValid = true;
+// 	}
+// 	if (i > 0 && i < 9) {
+// 		if (this->contacts[i - 1].getFirstName().empty()) {
+// 			std::cout << NO_CONTACT << std::endl;
+// 			return;
+// 		}
+// 		std::cout << std::setfill('-') << std::setw(10);
+// 		std::cout << std::left << "|" << I << FN << LN << NN << std::endl;
+// 		std::cout << std::setfill(' ') << std::setw(10) << i << "│" << std::endl;
+// 		std::cout << std::setfill('-') << std::setw(10);
+// 		buildIndexFormat(this->contacts[i - 1].getFirstName());
+// 		buildIndexFormat(this->contacts[i - 1].getLastName());
+// 		buildIndexFormat(this->contacts[i - 1].getNickname());
+// 		std::cout << std::endl;
+// 	}
+// }
