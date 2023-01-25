@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 14:37:53 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:37:32 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PhoneBook::PhoneBook() {
 	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << "to add a contact please type ADD" << "|" << std::endl;
 	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << "to search a contact please type SEARCH" << "|" << std::endl;
 	std::cout << "|" << std::setfill(' ') << std::setw(50) << std::left << "to exit this Awesome PhoneBook please type EXIT" << "|";
-	std::cout << " " << std::setfill('-') << std::setw(51) << "\n" << std::endl;
+	std::cout << "  " << std::setfill('-') << std::setw(51) << "\n" << std::endl;
 }
 
 PhoneBook::~PhoneBook() {
@@ -87,16 +87,16 @@ void	PhoneBook::printSearchContact(int i) { //put contacts into array contacts[]
 }
 
 void	buildIndexFormat(std::string info) {
-	std::cout << std::setfill('-') << std::setw(10) << std::endl;
-	std::cout << "|";
-	std::cout << std::setfill(' ') << std::setw(10) << std::endl;
+	//std::cout << std::setfill('-') << std::setw(10) << "\n" << std::endl;
+	//std::cout << "|";
 	if (info.length() > 10) {
 		info.resize(9);
 		info.append(1u, '.');
 	}
-	else
-		std::cout << std::right << info << "|";
-	std::cout << std::setfill('-') << std::setw(10);
+	else 
+		std::cout << std::setfill(' ') << std::setw(10) << std::right << info << "|";
+	//	std::cout << std::setfill(' ') << std::setw(10) << std::right << info << "|";
+		//std::cout << std::right << info << "|";
 }
 
 void	PhoneBook::buildIndexInfos(int i) {
@@ -115,14 +115,16 @@ void	PhoneBook::buildIndexInfos(int i) {
 			i = false;
 			return ;
 		}
-		std::cout << std::setfill('-') << std::setw(10);
+		std::cout << "┌" << std::setfill('-') << std::setw(46) << std::right << "┐" << std::endl;
 		std::cout << std::left << "|" << I << FN << LN << NN << std::endl;
-		std::cout << std::setfill(' ') << std::setw(10) << i << "│" << std::endl;
-		std::cout << std::setfill('-') << std::setw(10);
+		std::cout << "├" << std::setfill('-') <<std::setw(46) << std::right << "┤" << std::endl;
+		std::cout << "|";
+		std::cout << std::right << std::setfill(' ') << std::setw(10) << i << "│"; //ici endl enleve
 		buildIndexFormat(this->contacts[i - 1].getFirstName());
 		buildIndexFormat(this->contacts[i - 1].getLastName());
 		buildIndexFormat(this->contacts[i - 1].getNickname());
-		std::cout << std::endl;
+		std::cout << "\n";
+		std::cout << "└" << std::setfill('-') << std::setw(46) <<std::right << "┘" << "\n" << std::endl;
 	}
 }
 
