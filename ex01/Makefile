@@ -1,28 +1,28 @@
-PURP = \e[35m
-GREEN = \e[32m
-GREEN2 = \033[32m
-RED = \e[31m
-WHITE = \e[39m
-YELLOW = \033[33m
-HIDDEN = \e[8m
-RESET = \e[0
-BLUE = \033[34m
-CYAN = \033[36m
+PURP	= \e[35m
+GREEN2	= \e[32m
+GREEN2	= \033[32m
+RED		= \e[31m
+WHITE	= \e[39m
+YELLOW	= \033[33m
+HIDDEN	= \e[8m
+RESET	= \e[0
+BLUE	= \033[34m
+CYAN	= \033[36m
 
-NAME = MyAwsomePhoneBook
+NAME	= MyAwsomePhoneBook
 
-SRCS =	main.cpp Contact.cpp PhoneBook.cpp
-OBJS 	= ${SRCS:.cpp=.o}
+SRCS	= main.cpp Contact.cpp PhoneBook.cpp
 MAIN	= main.cpp
+OBJS	= ${SRCS:.cpp=.o}
 
-CC 		= c++
-CFLAGS 	= -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
+CC		= c++
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 #-pedantic #-g -fsanitize=address
 
-AR = ar rc
-RM = rm -f
+AR 		= ar rc
+RM 		= rm -f
 
-.c.o:		%.o : %.c
-					@$(CC)${CFLAGS} -I $< -o $(<:.cpp=.o)
+.c.o:		%.o : %.cpp
+					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
 
 all: 		${NAME}
 
@@ -30,12 +30,13 @@ ${NAME}:	${OBJS}
 					@echo "$(CYAN)---- Compiling library ----"
 					@sleep 0.2
 					@echo "$(GREEN2)📚 Link paths"
-					@$(CC) $(CFLAGS) ${OBJS} -o $(NAME)
+					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME)
 					@printf "$(BLUE)🍵 Creating $(NAME)$(RESET)\n"
 					@sleep 0.2
 					@echo "$(CYAN)$(NAME) Compiled ! \033[39m(\033[31m๑\033[39m╹◡╹\033[31m๑\033[39m)"
 					@sleep 0.2
 					@echo ""
+
 
 clean:
 					@${RM} ${OBJS}
@@ -60,4 +61,4 @@ fclean: 	clean
 
 re:			fclean all
 
-.PHONY: all clean fclean re party
+.PHONY: all clean fclean re

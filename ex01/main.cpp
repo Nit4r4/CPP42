@@ -6,15 +6,16 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:30:35 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 14:37:46 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/25 18:09:31 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-int	main(int argc)
+int	main(int argc, char **argv)
 {
+	(void)argv;
 	std::string	str;
 	PhoneBook	PhoneBook;
 	
