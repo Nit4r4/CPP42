@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:40:54 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/25 19:51:45 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/01/31 11:28:24 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,20 @@ std::string	getStreamInfos(std::string str) {
 	std::string	info;
 	
 	std::cout << str;
-	std::getline(std::cin, info, '\n');
-	if (std::cin.fail()) {
-		std::cout << "An error has occured" << std::endl;
-		exit (0);
+	info.clear();
+	while (true) {
+		std::getline(std::cin, info, '\n');
+		if (!info.empty()) {
+			if (std::cin.fail()) {
+				std::cout << "An error has occured" << std::endl;
+				exit (0);
+			}
+			std::cout << "You entered : " ;
+			std:: cout << info << std::endl;
+			return info;
+		}
+		std::cout << ":'( Please feed me : ";
 	}
-	if (!info.empty())
-		return info;
 	return (0);
 }
 
