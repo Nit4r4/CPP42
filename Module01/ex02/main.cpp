@@ -6,25 +6,20 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:44:04 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/03 13:08:21 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/03 14:42:26 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 int	main() {
-	randomChump("Flag");
-	randomChump("Conehead");
-	randomChump("Buckethead");
-	randomChump("Newspaper");
-
-	Zombie *Zomboni = newZombie("Zamboni");
-	Zomboni->announce();
-	delete Zomboni;
+	Zombie	*horde;
+	Zombie	*walkingHorde;
 	
-	Zombie *Ducky = newZombie("Ducky Tube");
-	Ducky->announce();
-	delete Ducky;
-	
+	std::cout << "🧠 Zombies are comming !!! 🧠" << "\n" << std::endl;
+	horde = zombieHorde(4, "\033[34mZombie\e[39m");
+	walkingHorde = zombieHorde(20, "\e[31mWalker\e[39m");
+	delete [] horde;
+	delete [] walkingHorde;
 	return (0);
 }

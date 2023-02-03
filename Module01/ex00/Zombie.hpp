@@ -3,7 +3,7 @@
 
 # include <iostream>
 
-# define YO "BraiiiiiiinnnzzzZ"
+# define YO ": BraiiiiiiinnnzzzZ..."
 
 class Zombie
 {
@@ -12,7 +12,7 @@ class Zombie
 		~Zombie();
 
 		void	announce(void);
-		void setName(std::string );
+		void setName(std::string name);
 
 	private:
 	
@@ -21,7 +21,7 @@ class Zombie
 
 };
 
-Zombie* newZombie( std::string name ); //Crée un zombie, lui donne un nom et le retourne afin qu’il puisse être utilisé en dehors de la portée de la fonction.
-void randomChump( std::string name ); //Crée un zombie, lui donne un nom et le fait se présenter.
+Zombie*	newZombie( std::string name ); //Crée un zombie, lui donne un nom et le retourne afin qu’il puisse être utilisé en dehors de la portée de la fonction.
+void	randomChump( std::string name ); //Crée un zombie, lui donne un nom et le fait se présenter.
 
 #endif
