@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 16:44:04 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/03 08:23:03 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/03 08:56:33 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main() {
 
 	Zombie *Zomboni = newZombie("Zamboni");
 	Zomboni->announce();
+	delete Zomboni;
+	
 	Zombie *Ducky = newZombie("Ducky Tube");
 	Ducky->announce();
-
-	delete Zomboni;
 	delete Ducky;
 }

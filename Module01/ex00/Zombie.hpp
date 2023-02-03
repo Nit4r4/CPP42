@@ -1,5 +1,5 @@
 #ifndef ZOMBIE_HPP
-# define ZOMNIE_HPP
+# define ZOMBIE_HPP
 
 # include <iostream>
 
