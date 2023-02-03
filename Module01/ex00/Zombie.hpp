@@ -8,23 +8,20 @@
 class Zombie
 {
 	public:
-		Zombie(std::string name) :_name(name)
-		{
-			std::cout << this->_name << std::endl;
-		}
-		
-		~Zombie()
-		{
+		Zombie();
+		~Zombie();
 
-		}
+		void	announce(void);
+		void setName(std::string );
 
 	private:
 	
-	std::string	_name;
+		std::string	_name;
 
-	void	announce(void);
 
-}
+};
 
+Zombie* newZombie( std::string name ); //Crée un zombie, lui donne un nom et le retourne afin qu’il puisse être utilisé en dehors de la portée de la fonction.
+void randomChump( std::string name ); //Crée un zombie, lui donne un nom et le fait se présenter.
 
 #endif
