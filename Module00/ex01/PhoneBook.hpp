@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:26:53 by vferraro          #+#    #+#             */
-/*   Updated: 2023/01/31 15:29:09 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/03 09:08:21 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 	PhoneBook(void);                         //constructor
 	~PhoneBook(void);                       //destructor
 
-	int		getCountedContact(void) const;     //fonction
+	int		getCountedContact(void) const;     //functions
 	void	addContact(void);
 	void	printSearchContact(int i);
 	void	buildIndexInfos(void);
