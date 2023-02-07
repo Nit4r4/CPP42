@@ -11,7 +11,7 @@ CYAN	= \033[36m
 
 NAME	= HiBrain
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
+SRCS	= main.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 
