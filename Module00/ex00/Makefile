@@ -9,7 +9,7 @@ RESET = \e[0
 BLUE = \033[34m
 CYAN = \033[36m
 
-NAME = megaphone
+NAME = Megaphone
 
 SRCS =	megaphone.cpp
 OBJS 	= ${SRCS:.cpp=.o}
