@@ -9,7 +9,7 @@ RESET = \e[0
 BLUE = \033[34m
 CYAN = \033[36m
 
-NAME = Megaphone
+NAME = megaphone
 
 SRCS =	megaphone.cpp
 OBJS 	= ${SRCS:.cpp=.o}
@@ -68,7 +68,7 @@ test:			$(NAME)
 				@echo ""
 				./megaphone
 				@echo ""
-# leak: 		all
-# 					leaks -atExit -- ./$(NAME) map/map.cub
+#leak: 		all
+#					leaks -atExit -- ./$(NAME)
 
 .PHONY: all clean fclean re party
