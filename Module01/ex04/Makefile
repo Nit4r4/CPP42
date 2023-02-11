@@ -11,7 +11,7 @@ CYAN	= \033[36m
 
 NAME	= Sed
 
-SRCS	= main.cpp
+SRCS	= main.cpp Sed.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 
