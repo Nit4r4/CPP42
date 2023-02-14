@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:00:10 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/11 18:38:03 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/14 14:04:11 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,16 @@
 
 class Sed {
 	public:
-		Sed(std::string filename, std::string s1_mod, std::string s2_mod);
+		Sed();
 		~Sed();
 
-	std::ifstream	fileName;
+	
+	std::ifstream	fileStream;
 	std::ofstream	newFile;
 	std::string		s1;
 	std::string		s2;
-
-	private:
 };
 
-void	ft_pos(std::string filename, std::string s1, std::string s2);
+	std::string	ft_pos(std::string fileLine, std::string s1, std::string s2);
 
 #endif
