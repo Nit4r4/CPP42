@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:17:22 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/14 16:52:56 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:46:22 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 class Harl {
 	public:
-		// Harl::Harl();
-		// Harl::~Harl();
+		Harl();
+		~Harl();
 
 
 	void	complain(std::string level);
@@ -36,6 +36,8 @@ class Harl {
 		void	error(void);
 		
 		std::string	_levelArray[4];
+		//std::string	_levelArray[4] = {"debug", "info", "warning", "error"};
+
 };
 
 #endif
