@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:15:18 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/16 15:42:14 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/18 17:02:55 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 	}
 
 	Fixed::Fixed(Fixed const &copy) {
-		std::cout << "Copy Constructor called" << std::endl;
+		std::cout << "Copy constructor called" << std::endl;
 		*this = copy;
 	}
 	
