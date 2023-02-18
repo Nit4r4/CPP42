@@ -9,7 +9,7 @@ RESET	= \e[0m
 BLUE	= \033[34m
 CYAN	= \033[36m
 
-NAME	= canon
+NAME	= NowWeCanTalk
 
 SRCS	= main.cpp Fixed.cpp
 MAIN	= main.cpp
