@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:00:12 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/21 15:56:36 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:00:33 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int	main(int argc, char **argv) {
 	else
 	{
 		std::cout << OP_ERR << std::endl;
-		return (1);
+		return 1;
 	}
 	if (fileName.length() <= 0) {
 		std::cout << EM_ERR << ::std::endl;
+		return 1;
 	}
 	return 0;
 }
