@@ -62,9 +62,9 @@ fclean: 	clean
 re:			fclean all
 
 test:			$(NAME)
-				./sed filesTest/textGen "Cuius" "Lorem sit dolor"
-				./sed filesTest/textGen "a" "x"
-				./sed filesTest/salut "salut" "bye"
+				./Sed filesTest/textGen "Cuius" "Lorem sit dolor"
+				./Sed filesTest/textGen "a" "x"
+				./Sed filesTest/salut "salut" "bye"
 
 leak: 		all
 					leaks -atExit -- ./$(NAME)
