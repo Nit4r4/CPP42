@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:51:30 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/18 17:30:36 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/21 07:33:17 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void) {
 	Fixed	a;
-	Fixed	const b(Fixed 5.05f) * Fixed(2));
+	Fixed	const b((Fixed (5.05f)) * Fixed(2));
 	
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
