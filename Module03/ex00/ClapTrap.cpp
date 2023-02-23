@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:36 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/23 15:46:12 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:55:24 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ClapTrap::attack(const std::string& target) {
 		std::cout << "\e[31m" << target << " looses : " << _damage << " points \e[0m" << std::endl;
 	}
 	else
-		std::cout << "ClapTrap : " << _name << " needs healing ! : " << target << " win this fight" << std::endl;
+		std::cout << "ClapTrap : " << _name << " cannot be healed ! : " << target << " wins this fight" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {

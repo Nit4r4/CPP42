@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:51:30 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/21 07:33:17 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/21 12:02:23 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(void) {
 
 /*
 Devra afficher ce résultat (pour plus de lisibilité, les messages du constructeur et du destructeur ont été retirés) :
-$> ./a.out 0
+$> ./a.out
+0
 0.00390625
 0.00390625
 0.00390625

@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:23 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/23 15:59:10 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:30:23 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,8 @@ int	main() {
 	ct1.beRepaired(3);
 	ct1.takeDamage(5);
 	ct1.beRepaired(3);
-
-	for (int i = 0; i < 1; i++)
-		ct1.attack("Andsome Jack");
-		
 	ct1.takeDamage(8);
 
-	for (int i = 0; i < 1; i++)
-		ct1.attack("Andsome Jack");
-		
 	std::cout << "\n" << std::endl;
 
 	ct2.attack("Andsome Jack");
@@ -39,17 +32,7 @@ int	main() {
 	ct2.beRepaired(3);
 	ct2.takeDamage(5);
 	ct2.beRepaired(3);
-	
-	for (int i = 0; i < 3; i++)
-		ct2.beRepaired(1);
-		
 	ct2.takeDamage(20);
-	
-
-	for (int i = 0; i < 1; i++)
-		ct2.beRepaired(1);
-		
 	std::cout << "\n" << std::endl;
-	
 	return 0;
 }

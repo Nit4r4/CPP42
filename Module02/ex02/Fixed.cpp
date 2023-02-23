@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:15:18 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/18 17:24:40 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/21 12:59:02 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 }
 
 	Fixed::Fixed(float const floatNbr) {
-		_valViFix = roundf(floatNbr * (1 << _bit));
+		_valViFix = roundf(floatNbr * (1 << _bit)); // recule de 8 bits pour placer la virgule
 		//std::cout << "Float constructor called" << std::endl;
 }
 
@@ -109,18 +109,34 @@
 	}
 
 	Fixed &Fixed::min(Fixed &a, Fixed &b) {
-		return a <= b ? a : b;
+				if (a >= b)
+			return a;
+		else 
+			return b;	
+		//return a <= b ? a : b;
 	}
 
 	const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
-		return a <= b ? a : b;
+				if (a >= b)
+			return a;
+		else 
+			return b;
+		//return a <= b ? a : b;
 	}
 
 	Fixed &Fixed::max(Fixed &a, Fixed &b) {
+		// if (a >= b)
+		// 	return a;
+		// else 
+		// 	return b;
 		return a >= b ? a : b;
 	}
 
 	const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+		// if (a >= b)
+		// 	return a;
+		// else 
+		// 	return b;
 		return a >= b ? a : b;
 	}
 
