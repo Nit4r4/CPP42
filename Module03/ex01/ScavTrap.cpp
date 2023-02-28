@@ -6,19 +6,20 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:14:18 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/28 13:18:53 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:01:01 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) :
-	_name("ScavTrap"),
-	_life(100),
-	_energy(50),
-	_damage(20) {
+ScavTrap::ScavTrap() : ClapTrap() {}
+
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+	_life = (100);
+	_energy = (50);
+	_damage = (20);
 	
-		std::cout << name << " wildly appeared" << std::endl;
+	std::cout << name << " wildly appeared" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &copy) {
@@ -50,4 +51,8 @@ void ScavTrap::attack(const std::string& target) {
 	}
 	else
 		std::cout << "ClapTrap : " << _name << " cannot be healed ! : " << target << " wins this fight" << std::endl;
+}
+
+void	ScavTrap::guardGate() {
+	std::cout << _name << " is the Guardian of Pandora" << std::endl;
 }

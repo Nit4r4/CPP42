@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:14:21 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/28 11:09:15 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:01:19 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 // # include <iostream>
 // # include <string> aussi heritees !!
 
-class ScavTrap : public | private ClapTrap {
+class ScavTrap : public ClapTrap {
 	public :
+	
 		ScavTrap();
+		ScavTrap(std::string name);
 		ScavTrap(ScavTrap const &copy);
 		ScavTrap	&operator=(ScavTrap const &assign);
 		~ScavTrap();
@@ -28,7 +30,6 @@ class ScavTrap : public | private ClapTrap {
 		void attack(const std::string& target); //remettre car change
 		void guardGate();
 	
-	private :
 };
 
 #endif

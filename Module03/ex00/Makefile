@@ -22,7 +22,7 @@ AR 		= ar rc
 RM 		= rm -f
 
 .c.o:		%.o : %.cpp
-					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
+					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o) 1>/dev/null
 
 all: 		${NAME}
 

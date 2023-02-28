@@ -6,11 +6,13 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:36 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/23 15:55:24 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:02:20 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap() {}
 
 ClapTrap::ClapTrap(std::string name) :
 	_name(name),

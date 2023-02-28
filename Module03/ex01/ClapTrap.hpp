@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:39 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/23 15:45:02 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:01:57 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 class ClapTrap {
 	public :
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap const &copy);
 		~ClapTrap();
@@ -31,7 +32,7 @@ class ClapTrap {
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 	
-	private :
+	protected : //parce qu en private on ne peut pas l utiliser !!!
 		std::string	_name;
 		int	_life;
 		int	_energy;

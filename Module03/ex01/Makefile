@@ -24,13 +24,13 @@ RM 		= rm -f
 .c.o:		%.o : %.cpp
 					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
 
-all: 		${NAME}
+all: 		${NAME} 
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} 
 					@echo "$(CYAN)---- Compiling library ----"
 					@sleep 0.2
 					@echo "$(GREEN2)📚 Link paths"
-					@@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME) 
+					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME) 2> /dev/null
 					@printf "$(BLUE)🍵 Creating $(NAME)$(RESET)\n"
 					@sleep 0.2
 					@echo "$(CYAN)$(NAME) Compiled ! \033[39m(\033[31m๑\033[39m╹◡╹\033[31m๑\033[39m)"
