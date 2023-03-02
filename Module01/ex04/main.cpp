@@ -6,12 +6,11 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:00:12 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/14 14:03:34 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:00:33 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
-
 
 int	main(int argc, char **argv) {
 	if (argc != 4)
@@ -19,13 +18,15 @@ int	main(int argc, char **argv) {
 		std::cout << ARG_ERR << std::endl;
 		return (1);
 	}
+
 	std::string fileName(argv[1]);
 	std::ifstream fileStream(fileName); //open/define file
-	std::string		newFile = fileName + ".replace";
+	std::string	newFile = fileName + ".replace";
 	std::string s1(argv[2]); //define word to replace
 	std::string s2(argv[3]); //define new word
 	
-	if (fileStream || fileStream != 0)
+
+	if ((fileStream || fileStream != 0))
 	{
 		std::ofstream	newfile(newFile);
 		while (getline(fileStream, fileName)) {
@@ -36,7 +37,11 @@ int	main(int argc, char **argv) {
 	else
 	{
 		std::cout << OP_ERR << std::endl;
-		return (1);
+		return 1;
+	}
+	if (fileName.length() <= 0) {
+		std::cout << EM_ERR << ::std::endl;
+		return 1;
 	}
 	return 0;
 }

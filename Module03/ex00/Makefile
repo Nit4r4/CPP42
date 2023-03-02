@@ -9,9 +9,9 @@ RESET	= \e[0m
 BLUE	= \033[34m
 CYAN	= \033[36m
 
-NAME	= Sed
+NAME	= Hyperion
 
-SRCS	= main.cpp Sed.cpp
+SRCS	= main.cpp ClapTrap.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 
@@ -22,7 +22,7 @@ AR 		= ar rc
 RM 		= rm -f
 
 .c.o:		%.o : %.cpp
-					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
+					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o) 1>/dev/null
 
 all: 		${NAME}
 
@@ -30,7 +30,7 @@ ${NAME}:	${OBJS}
 					@echo "$(CYAN)---- Compiling library ----"
 					@sleep 0.2
 					@echo "$(GREEN2)📚 Link paths"
-					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME)
+					@@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME)
 					@printf "$(BLUE)🍵 Creating $(NAME)$(RESET)\n"
 					@sleep 0.2
 					@echo "$(CYAN)$(NAME) Compiled ! \033[39m(\033[31m๑\033[39m╹◡╹\033[31m๑\033[39m)"
@@ -60,11 +60,6 @@ fclean: 	clean
 					@echo ""
 
 re:			fclean all
-
-test:			$(NAME)
-				./Sed filesTest/textGen "Cuius" "Lorem sit dolor"
-				./Sed filesTest/textGen "a" "x"
-				./Sed filesTest/salut "salut" "bye"
 
 leak: 		all
 					leaks -atExit -- ./$(NAME)

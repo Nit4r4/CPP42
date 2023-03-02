@@ -5,36 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 15:51:30 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/21 12:02:23 by vferraro         ###   ########.fr       */
+/*   Created: 2023/02/23 13:08:23 by vferraro          #+#    #+#             */
+/*   Updated: 2023/02/23 15:30:23 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int	main(void) {
-	Fixed	a;
-	Fixed	const b((Fixed (5.05f)) * Fixed(2));
+int	main() {
+	ClapTrap	ct1("CL4P-TP");
+	ClapTrap	ct2("Random Hyperion's robot");
 	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max(a, b) << std::endl;
-	return 0;
-	}
+	ct1.attack("Andsome Jack");
+	ct1.takeDamage(2);
+	ct1.takeDamage(1);
+	ct1.beRepaired(3);
+	ct1.takeDamage(5);
+	ct1.beRepaired(3);
+	ct1.takeDamage(8);
 
-/*
-Devra afficher ce résultat (pour plus de lisibilité, les messages du constructeur et du destructeur ont été retirés) :
-$> ./a.out
-0
-0.00390625
-0.00390625
-0.00390625
-0.0078125
-10.1016
-10.1016
-$>
-*/
+	std::cout << "\n" << std::endl;
+
+	ct2.attack("Andsome Jack");
+	ct2.takeDamage(2);
+	ct2.takeDamage(1);
+	ct2.beRepaired(3);
+	ct2.takeDamage(5);
+	ct2.beRepaired(3);
+	ct2.takeDamage(20);
+	std::cout << "\n" << std::endl;
+	return 0;
+}

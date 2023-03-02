@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:12:49 by vferraro          #+#    #+#             */
-/*   Updated: 2023/02/18 17:30:59 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:25:19 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ class Fixed {
 		static int	const _bit = 8;
 };
 
-std::ostream &operator<<(std::ostream &oos, const Fixed &assign);
+std::ostream &operator<<(std::ostream &oos, const Fixed &assign); //prototype hors classe -(cout oos sortie) affiche - oos passe par reference car va etre modifie
 
 #endif

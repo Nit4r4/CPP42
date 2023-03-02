@@ -9,9 +9,9 @@ RESET	= \e[0m
 BLUE	= \033[34m
 CYAN	= \033[36m
 
-NAME	= Sed
+NAME	= Hyperion
 
-SRCS	= main.cpp Sed.cpp
+SRCS	= main.cpp ClapTrap.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 
@@ -60,11 +60,6 @@ fclean: 	clean
 					@echo ""
 
 re:			fclean all
-
-test:			$(NAME)
-				./Sed filesTest/textGen "Cuius" "Lorem sit dolor"
-				./Sed filesTest/textGen "a" "x"
-				./Sed filesTest/salut "salut" "bye"
 
 leak: 		all
 					leaks -atExit -- ./$(NAME)

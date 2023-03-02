@@ -9,9 +9,9 @@ RESET	= \e[0m
 BLUE	= \033[34m
 CYAN	= \033[36m
 
-NAME	= Sed
+NAME	= Serena
 
-SRCS	= main.cpp Sed.cpp
+SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 
@@ -24,13 +24,13 @@ RM 		= rm -f
 .c.o:		%.o : %.cpp
 					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
 
-all: 		${NAME}
+all: 		${NAME} 
 
-${NAME}:	${OBJS}
+${NAME}:	${OBJS} 
 					@echo "$(CYAN)---- Compiling library ----"
 					@sleep 0.2
 					@echo "$(GREEN2)📚 Link paths"
-					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME)
+					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME) 2> /dev/null
 					@printf "$(BLUE)🍵 Creating $(NAME)$(RESET)\n"
 					@sleep 0.2
 					@echo "$(CYAN)$(NAME) Compiled ! \033[39m(\033[31m๑\033[39m╹◡╹\033[31m๑\033[39m)"
@@ -61,12 +61,7 @@ fclean: 	clean
 
 re:			fclean all
 
-test:			$(NAME)
-				./Sed filesTest/textGen "Cuius" "Lorem sit dolor"
-				./Sed filesTest/textGen "a" "x"
-				./Sed filesTest/salut "salut" "bye"
-
 leak: 		all
 					leaks -atExit -- ./$(NAME)
-					
+
 .PHONY: all clean fclean re
