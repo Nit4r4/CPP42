@@ -3,22 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:23 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 12:01:27 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/06 12:44:46 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main() {
 	ClapTrap	ct1("CL4P-TP");
 	ScavTrap	st2("SC4V-TP");
+	FragTrap	ft3("FR4G-TP");
+	//DiamondTrap	dt4("D14M0ND-TP");
+	DiamondTrap = new ClapTrap; // ? ou comme ca ?
+	
+	
 	
 	std::cout << "\n" << std::endl;
-	
+
 	ct1.attack("Andsome Jack");
 	ct1.takeDamage(2);
 	ct1.takeDamage(1);
@@ -37,24 +44,45 @@ int	main() {
 		
 	std::cout << "\n" << std::endl;
 
-	st2.attack("Andsome Jack");
+	st2.attack("a Skag");
 	st2.takeDamage(2);
 	st2.takeDamage(1);
 	st2.beRepaired(3);
+	st2.attack("a Skag");
 	st2.takeDamage(5);
 	st2.beRepaired(3);
 	st2.guardGate();
+	st2.takeDamage(200);
 	
-	for (int i = 0; i < 3; i++)
-		st2.beRepaired(1);
+	// for (int i = 0; i < 3; i++)
+	// 	st2.beRepaired(1);
 		
-	st2.takeDamage(20);
+	// st2.takeDamage(20);
 	
 
-	for (int i = 0; i < 1; i++)
-		st2.beRepaired(1);
+	// for (int i = 0; i < 1; i++)
+	// 	st2.beRepaired(1);
 		
 	std::cout << "\n" << std::endl;
+
+	ft3.highFivesGuys();
+	ft3.attack("BNK-3R");
+	ft3.takeDamage(2);
+	ft3.takeDamage(1);
+	ft3.beRepaired(3);
+	ft3.highFivesGuys();
+	ft3.takeDamage(5);
+	ft3.beRepaired(3);
+	ft3.highFivesGuys();
+	ft3.takeDamage(150);
 	
+	std::cout << "\n" << std::endl;
+	
+	dt4.highFivesGuys();
+	dt4.attack("Rihanna");
+	dt4.whoAmI();
+		
+	std::cout << "\n" << std::endl;
+
 	return 0;
 }

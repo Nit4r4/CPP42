@@ -6,22 +6,32 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:36 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 12:02:18 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/02 11:58:28 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {}
+ClapTrap::ClapTrap() {
+	std::cout << "CL4P-TP constructor called" << std::endl;
+}
 
-ClapTrap::ClapTrap(std::string name) :
-	_name(name),
-	_life(10),
-	_energy(10),
-	_damage(0) {
+// ClapTrap::ClapTrap(std::string name) :
+// 	_name(name),
+// 	_life(10),
+// 	_energy(10),
+// 	_damage(0) {
 	
-		if (!_name.compare("CL4P-TP"))
-			std::cout << name << " just pop on the map 🤖" << std::endl;
+// 	std::cout << name << " just pop on the map 🤖" << std::endl;
+// }
+
+ClapTrap::ClapTrap(std::string name) : _name(name) {
+	_life = (10);
+	_energy = (10);
+	_damage = (0);
+	
+	if (!_name.compare("CL4P-TP"))
+		std::cout << name << " just pop on the map 🤖" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &copy) {
