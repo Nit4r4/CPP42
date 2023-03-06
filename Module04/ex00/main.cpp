@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:02:42 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/06 14:00:13 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:16:55 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main() {
 
+	/* Basic tests */
 	const Animal* meta = new Animal(); 
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
@@ -24,6 +25,11 @@ int main() {
 	std::cout << i->getType() << " " << std::endl; 
 	i->makeSound(); //will output the cat sound! j->makeSound();
 	meta->makeSound();
+
+	/* Other tests */
+	std::cout << " " << std::endl;
+	std::cout << meta->getType() << " " << std::endl;
+	j->makeSound();
 
 	return 0;
 }

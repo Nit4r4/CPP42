@@ -30,7 +30,7 @@ ${NAME}:	${OBJS}
 					@echo "$(CYAN)---- Compiling library ----"
 					@sleep 0.2
 					@echo "$(GREEN2)📚 Link paths"
-					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME) 2> /dev/null
+					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME)
 					@printf "$(BLUE)🍵 Creating $(NAME)$(RESET)\n"
 					@sleep 0.2
 					@echo "$(CYAN)$(NAME) Compiled ! \033[39m(\033[31m๑\033[39m╹◡╹\033[31m๑\033[39m)"

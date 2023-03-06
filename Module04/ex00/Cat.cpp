@@ -6,18 +6,23 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:13:10 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/06 14:18:52 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:06:43 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat") {
-	std::cout << "Cat constructor called" << std::endl;
+Cat::Cat() : Animal() {
+	std::cout << "Cat wakes up 🐈" << std::endl;
+	type = "Cat";
 }
 
+// Cat::Cat() : type("Cat") {
+// 	std::cout << "Cat wake up" << std::endl;
+// }
+
 Cat::~Cat(){
-		std::cout << "Cat destructor called" << std::endl;
+		std::cout << "Cat return to sleep" << std::endl;
 }
 
 Cat::Cat(Cat const &copy) {
@@ -25,12 +30,12 @@ Cat::Cat(Cat const &copy) {
 	this->type = copy.getType();
 }
 
-Cat	&operator=(Cat const &assign) {
+Cat	& Cat::operator=(Cat const &assign) {
 	std::cout << "Cat assignement constructor called" << std::endl;
 	this->type = assign.getType();
 	return *this;
 }
 
-void	const makeSound() {
-	std::cout << "Miaaaaaw" << std::endl;
+void	Cat::makeSound() const {
+	std::cout << "😽 Miaaaaaw" << std::endl;
 }
