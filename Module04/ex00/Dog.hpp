@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:01:36 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/06 14:27:20 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 09:56:33 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Dog : public Animal {
 	public :
 		Dog();
-		virtual ~Dog();
+		~Dog();
 		Dog(Dog const &copy);
 		Dog	&operator=(Dog const &assign);
 

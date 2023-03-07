@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 08:01:50 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/07 14:46:27 by vferraro         ###   ########.fr       */
+/*   Created: 2023/03/06 13:00:49 by vferraro          #+#    #+#             */
+/*   Updated: 2023/03/07 15:37:25 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
-# include <string>
+# include "Animal.hpp"
 
-class Animal {
+class Cat : public Animal {
 	public :
-		Animal();
-		virtual ~Animal();
-		Animal(Animal const &copy);
-		Animal	&operator=(Animal const &assign);
+		Cat();
+		~Cat();
+		Cat(Cat const &copy);
+		Cat	&operator=(Cat const &assign);
 
-		std::string	getType(void) const; //attention mettre le const a la fin !
-		//void		setType(const std::string newType); // pas besoin
-
-		virtual void	makeSound(void) const;
-
-	protected :
-		std::string	type;
+		void	makeSound() const;
+		
+	private :
+		Brain*	_brain;
 };
 
 #endif

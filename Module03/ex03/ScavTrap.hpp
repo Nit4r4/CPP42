@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:14:21 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 14:48:31 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:41:57 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScavTrap : public ClapTrap {
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap const &copy);
 		ScavTrap	&operator=(ScavTrap const &assign);
-		~ScavTrap();
+		virtual ~ScavTrap();
 
 		virtual void attack(const std::string& target); //remettre car change
 		void guardGate();

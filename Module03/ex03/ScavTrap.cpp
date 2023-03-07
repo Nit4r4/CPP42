@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:14:18 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 11:59:06 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:16:02 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,35 +24,36 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 
 ScavTrap::ScavTrap(ScavTrap const &copy) {
 	*this = copy;
-	std::cout << _name << "Copy constructor of ScavTrap called" << std::endl;
+	std::cout << getName() << "Copy constructor of ScavTrap called" << std::endl;
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const &assign) {
 	// if (this != &assign) {
-	// 	_name = assign._name;
+	// 	getName() = assign.getName();
 	// 	_life = assign._life;
 	// 	_energy = assign._energy;
 	// 	_damage = assign._damage;
 	// }
 	this->ClapTrap::operator = (assign);
-	std::cout << _name << "Assignment constructor of ScavTrap called" << std::endl;
+	std::cout << getName() << "Assignment constructor of ScavTrap called" << std::endl;
 	return *this;
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "ClapTrap : " << _name << " died without any consideration 👾" << std::endl;
+	std::cout << "ClapTrap : " << getName() << " died without any consideration 👾" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target) {
-	if (_energy > 0 && _life > 0) { 
-		std::cout << "\033[33mClapTrap : " << _name << " attacks with a lot of class " << target << "\e[0m" << std::endl;
-		_energy -= 1; //Les actions attaquer et réparer coûtent chacune 1 point d’énergie.
-		std::cout << "\e[31m" << target << " looses : " << _damage << " points \e[0m" << std::endl;
+	if (getEnergyPoints() > 0 && getHitPoints() > 0) { 
+		std::cout << "\033[33mClapTrap : " << getName() << " attacks with a lot of class " << target << "\e[0m" << std::endl;
+		// getEnergyPoints() -= 1;
+		_energy -= 1;
+		std::cout << "\e[31m" << target << " looses : " << getAttackDamage() << " points \e[0m" << std::endl;
 	}
 	else
-		std::cout << "ClapTrap : " << _name << " cannot be healed ! : " << target << " wins this fight" << std::endl;
+		std::cout << "ClapTrap : " << getName() << " cannot be healed ! : " << target << " wins this fight" << std::endl;
 }
 
 void	ScavTrap::guardGate() {
-	std::cout << _name << " is the Guardian of Pandora" << std::endl;
+	std::cout << getName() << " is the Guardian of Pandora" << std::endl;
 }

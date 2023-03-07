@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:24:19 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 14:57:49 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:25:04 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap() {
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 	// 	DiamondTrap::DiamondTrap() : ClapTrap() {
     // _name = _name;
     // _life = FragTrap::_life;
@@ -33,14 +33,14 @@ DiamondTrap::DiamondTrap(std::string newName) : ClapTrap(newName + "_clap_name")
 	std::cout << newName << " wildly appeared 👾" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &copy) {
+DiamondTrap::DiamondTrap(DiamondTrap const &copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy) {
 	*this = copy;
-	std::cout << _name << "Copy constructor of DiamondTrap called" << std::endl;
+	std::cout << getName() << "Copy constructor of DiamondTrap called" << std::endl;
 }
 
 DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &assign) {
 	// if (this != &assign) {
-	// 	_name = assign._name;
+	// 	getName() = assign.getName();
 	// 	_life = assign._life;
 	// 	_energy = assign._energy;
 	// 	_damage = assign._damage;
@@ -48,14 +48,14 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &assign) {
 	ClapTrap::operator = (assign);
 	this->FragTrap::operator = (assign);
 	this->ScavTrap::operator = (assign);
-	std::cout << _name << "Assignment constructor of DiamondTrap called" << std::endl;
+	std::cout << getName() << "Assignment constructor of DiamondTrap called" << std::endl;
 	return *this;
 }
 
 // DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
 //     if (this != &other) {
 //         ClapTrap::operator=(other);
-//         _name = other._name;
+//         getName() = other.getName();
 //         _life = other._life;
 //         _energy = other._energy;
 //         _damage = other._damage;
@@ -64,13 +64,19 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &assign) {
 // }
 
 DiamondTrap::~DiamondTrap() {
-	std::cout << "ClapTrap : " << _name << " died like a Diamond" << std::endl;
+	std::cout << "ClapTrap : " << getName() << " died like a Diamond" << std::endl;
 }
 
-void DiamondTrap::attack(const std::string& target) {
+void	DiamondTrap::attack(const std::string& target) {
 	ScavTrap::attack(target);
 }
 
-	void DiamondTrap::whoAmI() {
-		std::cout << "My name is " << _name << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
-	}
+void	DiamondTrap::whoAmI() {
+	std::cout << "My name is " << getName() << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
+}
+
+void	DiamondTrap::getInfos() {
+	std::cout << "Life or HP like a boss : " << _life << std::endl;
+	std::cout << "My energy is like : " << _energy << std::endl;
+	std::cout << "I took some damage : " << _damage << std::endl;
+}

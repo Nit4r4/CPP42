@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:24:15 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 14:48:58 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:19:30 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap { // pour heriter de plusieurs class on met une virgule pour separer les nom de class
+class DiamondTrap : public ScavTrap, public FragTrap { // pour heriter de plusieurs class on met une virgule pour separer les nom de class
 	public :
 	
 		DiamondTrap();
@@ -28,7 +28,8 @@ class DiamondTrap : public FragTrap, public ScavTrap { // pour heriter de plusie
 
 		void	attack(const std::string &target);
 		void	whoAmI();
-		
+		void	getInfos();
+
 	private :
 		std::string	_name;
 };

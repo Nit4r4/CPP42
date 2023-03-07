@@ -9,7 +9,7 @@ RESET	= \e[0m
 BLUE	= \033[34m
 CYAN	= \033[36m
 
-NAME	= Poly
+NAME	= Buuuuurn
 
 SRCS	= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 MAIN	= main.cpp

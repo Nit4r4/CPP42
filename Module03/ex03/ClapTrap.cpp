@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:36 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 13:00:56 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:13:26 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ ClapTrap::ClapTrap(std::string name) : _name(name) {
 	_damage = (0);
 	
 	if (!_name.compare("CL4P-TP"))
-		std::cout << name << " just pop on the map 🤖" << std::endl;
+		std::cout << getName() << " just pop on the map 🤖" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &copy) {
 	*this = copy;
-	std::cout << _name << "Copy constructor called" << std::endl;
+	std::cout << getName() << "Copy constructor called" << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap const &assign) {
@@ -37,13 +37,13 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &assign) {
 		_energy = assign._energy;
 		_damage = assign._damage;
 	}
-	std::cout << _name << "Assignment constructor called" << std::endl;
+	std::cout << getName() << "Assignment constructor called" << std::endl;
 	return *this;
 }
 
 ClapTrap::~ClapTrap() {
-	if (!_name.compare("CL4P-TP"))
-		std::cout << "ClapTrap : " << _name << " '🤖 Sbiiiiir...' *Sorry, ClapTrap passed away. Now WE can rest in peace mouhahhahhaha.... wait... too soon ?*" << std::endl;
+	if (!getName().compare("CL4P-TP"))
+		std::cout << "ClapTrap : " << getName() << " '🤖 Sbiiiiir...' *Sorry, ClapTrap passed away. Now WE can rest in peace mouhahhahhaha.... wait... too soon ?*" << std::endl;
 }
 
 std::string ClapTrap::getName() const {
@@ -75,11 +75,39 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	if (_energy > 0 && _life > 0) { // Bien entendu, ClapTrap ne peut exécuter aucune action s’il n’a plus de vie ou d’énergie. 
-		_life += amount; //QuandClapTrap se répare, il regagne <amount> hit points
-		_energy -= 1;// Les actions attaquer et réparer coûtent chacune 1 point d’énergie.
-		std::cout << "\033[36mClapTrap : " << _name << " feels " << amount << " point(s) much better, ready to fight again for Butt Stallion 🦄✨\e[0m" << std::endl;
+	if (getEnergyPoints() > 0 && getHitPoints() > 0) {  // on pase a present par les getter
+		_life += amount; 
+		_energy -= 1;
+		std::cout << "\033[36mClapTrap : " << getName() << " feels " << amount << " point(s) much better, ready to fight again for Butt Stallion 🦄✨\e[0m" << std::endl;
 	}
 	else
 		std::cout << "ClapTrap : " << _name << " cannot be healed, sounds like Handsome Jack wins..." << std::endl;
+}
+
+void ClapTrap::setName(std::string name) {
+	_name = name;
+}
+
+int ClapTrap::getHitPoints() const {
+	return _life;
+}
+
+void ClapTrap::setHitPoints(int life) {
+	_life = life;
+}
+
+int ClapTrap::getEnergyPoints() const {
+	return _energy;
+}
+
+void ClapTrap::setEnergyPoints(int energy) {
+	_energy = energy;
+}
+
+int ClapTrap::getAttackDamage() const {
+	return _damage;
+}
+
+void ClapTrap::setAttackDamage(int damage) {
+	_damage = damage;
 }

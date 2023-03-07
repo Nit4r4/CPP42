@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 08:01:50 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/07 14:46:27 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:31:21 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ class Animal {
 		Animal(Animal const &copy);
 		Animal	&operator=(Animal const &assign);
 
-		std::string	getType(void) const; //attention mettre le const a la fin !
-		//void		setType(const std::string newType); // pas besoin
+		std::string	getType(void) const;
 
 		virtual void	makeSound(void) const;
 

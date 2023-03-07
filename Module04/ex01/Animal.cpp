@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 08:14:12 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/07 15:02:22 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 14:36:51 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ Animal	&Animal::operator=(Animal const &assign) {
 
 std::string	Animal::getType(void) const {
 	return type;
-}
-	
-// void	Animal::setType(const std::string newType) {
-// 	this->type = newType; pas utilisé
 }
 
 void	Animal::makeSound(void) const {

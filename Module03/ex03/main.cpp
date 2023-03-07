@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 13:08:23 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/06 12:44:46 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:10:45 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	main() {
 	ClapTrap	ct1("CL4P-TP");
 	ScavTrap	st2("SC4V-TP");
 	FragTrap	ft3("FR4G-TP");
-	//DiamondTrap	dt4("D14M0ND-TP");
-	DiamondTrap = new ClapTrap; // ? ou comme ca ?
+	DiamondTrap	dt4("D14M0ND-TP");
+	//ScavTrap* dt4 = new DiamondTrap();
 	
 	
 	
@@ -54,15 +54,6 @@ int	main() {
 	st2.guardGate();
 	st2.takeDamage(200);
 	
-	// for (int i = 0; i < 3; i++)
-	// 	st2.beRepaired(1);
-		
-	// st2.takeDamage(20);
-	
-
-	// for (int i = 0; i < 1; i++)
-	// 	st2.beRepaired(1);
-		
 	std::cout << "\n" << std::endl;
 
 	ft3.highFivesGuys();
@@ -78,10 +69,10 @@ int	main() {
 	
 	std::cout << "\n" << std::endl;
 	
-	dt4.highFivesGuys();
+	//dt4->highFivesGuys();
 	dt4.attack("Rihanna");
 	dt4.whoAmI();
-		
+	dt4.getInfos();
 	std::cout << "\n" << std::endl;
 
 	return 0;
