@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:01:36 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/07 15:37:07 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:56:25 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public Animal { // pas besoin de faire heriter de public Brain (?)
 	public :
 		Dog();
 		~Dog();
@@ -23,6 +24,9 @@ class Dog : public Animal {
 		Dog	&operator=(Dog const &assign);
 
 		void	makeSound() const;
+		
+		void		setIdea(std::string idea, int i) const;
+		std::string	getIdea(int i) const;
 
 	private :
 		Brain*	_brain;

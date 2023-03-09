@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 15:14:15 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/07 15:33:44 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/09 15:49:34 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 
+# define NB_ID 100
+
 class Brain {
 	public :
 		Brain();
@@ -23,12 +25,7 @@ class Brain {
 		Brain(Brain const &copy);
 		Brain	&operator=(Brain const &assign);
 
-		std::string	getType(void) const;
-
-		std::string ideas[100];
-
-	protected :
-		std::string	_brain;
+		std::string ideas[NB_ID];
 };
 
 #endif
