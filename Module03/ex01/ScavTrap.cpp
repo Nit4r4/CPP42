@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:14:18 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/02 12:01:55 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/13 07:57:44 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void	ScavTrap::guardGate() {
-	std::cout << _name << " is the Guardian of Pandora" << std::endl;
+	std::cout << "\e[32mClapTrap : " << _name << " is now in Gate keeper mode, call him : The Guardian of Pandora 🛡\e[0m" << std::endl;
 }

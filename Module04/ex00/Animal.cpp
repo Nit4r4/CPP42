@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 08:14:12 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/07 15:02:22 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:07:04 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ std::string	Animal::getType(void) const {
 	
 // void	Animal::setType(const std::string newType) {
 // 	this->type = newType; pas utilisé
-}
+// }
 
 void	Animal::makeSound(void) const {
-	std::cout << "🛑 Animals makes different sounds, but I am not an Animal, I am just a Class" << std::endl;
+	//std::cout << "🛑 Animals makes different sounds, but I am not an Animal, I am just a Class" << std::endl;
 }

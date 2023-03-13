@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:02:42 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/07 14:29:36 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:37:10 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 #include "WrongCat.hpp"
 
 int main() {
+std::cout << " " << std::endl;
+std::cout << "  ####   #####   #####         ##   ##   ####   #####   ##  ##  ##      ######            ##        ######  ##  ##   ####     ####         " << std::endl;
+std::cout << " ##  ##  ##  ##  ##  ##        ### ###  ##  ##  ##  ##  ##  ##  ##      ##            ##  ##        ##       ####   ##  ##   ##  ##        " << std::endl;
+std::cout << " ##      #####   #####         ## # ##  ##  ##  ##  ##  ##  ##  ##      ####          ######        ####      ##    ######   ######        " << std::endl;
+std::cout << " ##  ##  ##      ##            ##   ##  ##  ##  ##  ##  ##  ##  ##      ##                ##        ##       ####   ##  ##   ##  ##        " << std::endl;
+std::cout << "  ####   ##      ##            ##   ##   ####   #####    ####   ######  ######            ##        ######  ##  ##   ####     ####         " << std::endl;
+std::cout << " " << std::endl;
 
 	/* Basic tests */
 	std::cout << "*** SUBJECTS'S TESTS ***" << std::endl;
@@ -62,12 +69,18 @@ int main() {
 	std::cout << w->getType() << " " << std::endl;
 	std::cout << " " << std::endl;
 	//std::cout << "atem : " << atem << std::endl; //will output the wrong animal sound! 
-	std::cout << "WRONG ANIMAL atem->makeSound() : " << std::endl; //will output the wrong animal sound! 
+	std::cout << "WRONG ANIMAL atem->makeSound() : " << ""; //will output the wrong animal sound! 
 	atem->makeSound();
 	std::cout << " " << std::endl;
-	std::cout << "WRONG CAT w->makeSound() : " << std::endl;//will output the wrong animal sound! (virtual has been removed from the destructor)
+	std::cout << "WRONG CAT w->makeSound() : " << "";//will output the wrong animal sound! (virtual has been removed from the destructor)
 	w->makeSound();
 	std::cout << " " << std::endl;
+	// std::cout << "WRONG ANIMAL atem->makeSound() : " << std::endl; //will output the wrong animal sound! 
+	// atem->makeSound();
+	// std::cout << " " << std::endl;
+	// std::cout << "WRONG CAT w->makeSound() : " << std::endl;//will output the wrong animal sound! (virtual has been removed from the destructor)
+	// w->makeSound();
+	// std::cout << " " << std::endl;
 
 	/* Destructors */
 	delete w;
