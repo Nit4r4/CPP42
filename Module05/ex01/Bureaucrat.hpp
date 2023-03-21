@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:51:25 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/14 16:17:09 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:03:47 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <string>
 # include <exception>
 # include <stdexcept>
+
+class Bureaucrat;
+# include "Form.hpp"
 
 # define LOW "\e[31mToo low. Into deep (it's a great song !) \e[0m"
 # define HIGH "\033[34mYou get to high. Above the sky there is the sun but think about Icare... \e[0m"
@@ -34,6 +37,8 @@ class Bureaucrat {
 
 		void	increaseGrade();
 		void	decreaseGrade();
+
+		void	signForm(Form &obj);
 
 		class GradeTooHighException : public std::exception {
 			public :

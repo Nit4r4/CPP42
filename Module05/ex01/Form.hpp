@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:44:45 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/16 19:07:43 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:36:17 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 
 # include <iostream>
 # include <string>
+# include <exception>
+# include <stdexcept>
 
+class Form;
 # include "Bureaucrat.hpp"
 
-class Form
-{
-private:
+class Form {
+private :
 	std::string	const _name;
-	bool	const _notSign;
+	bool	_signed;
 	int		const _signGrade;
 	int		const _execGrade;
 
@@ -33,7 +35,7 @@ public :
 	Form(Form const &copy);
 	Form &operator=(Form const &assign);
 
-	void		beSigned(Bureaucrat &copy);
+	void		beSigned(Bureaucrat &obj);
 
 	std::string	getName() const;
 	bool		getSign() const;

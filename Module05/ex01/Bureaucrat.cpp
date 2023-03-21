@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 15:23:25 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/16 12:30:54 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/21 16:02:01 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	Bureaucrat::decreaseGrade() {
 	{
 		if (getGrade() > 150)
 			throw Bureaucrat::GradeTooLowException();
-		else if (getGrade() == 1)
+		else if (getGrade() == 150)
 			std::cout << "\033[33mWatch out, you cannot go lower\e[0m" << std::endl;
 		else {
 			_grade += 1;
@@ -110,4 +110,14 @@ std::ostream	&operator <<(std::ostream &out, const Bureaucrat &obj)
 		out << "\033[35mWelcome " << obj.getName() << " you are " << obj.getGrade() << " grade...\e[0m" << std::endl;
 	}
 	return (out);
+}
+
+void Bureaucrat::signForm(Form &obj) {
+	if (_grade <= obj.getSignGrade() && _grade > 0) {
+		obj.beSigned((*this));
+		std::cout << _name << " signed " << obj.getName() << std::endl;
+	}
+	else {
+		std::cout << _name << " couldn't sign " << obj.getName() << " because grade is to low." << std::endl;
+	}
 }

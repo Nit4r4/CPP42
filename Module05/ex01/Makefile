@@ -10,7 +10,7 @@ BLUE	= \033[34m
 CYAN	= \033[36m
 MAGENTA = \033[35m
 
-NAME	= Bureaularvos
+NAME	= Bureaukratos
 
 
 SRCS	= main.cpp Bureaucrat.cpp Form.cpp
@@ -30,19 +30,19 @@ AR 		= ar rc
 RM 		= rm -f
 
 .c.o:		%.o : %.cpp
-					@$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
+					$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
 
 logo :
 			@$(LOGO_CPP)
 
-all: 		logo ${NAME} 
+all: 		${NAME} 
 
 
 ${NAME}:	${OBJS} 
 					@echo "$(CYAN)---- Compiling library ----"
 					@sleep 0.2
 					@echo "$(GREEN2)📚 Link paths"
-					@$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME)
+					$(CC) $(CPPFLAGS) ${OBJS} -o $(NAME)
 					@printf "$(BLUE)🍵 Creating $(NAME)$(RESET)\n"
 					@sleep 0.2
 					@echo "$(CYAN)$(NAME) Compiled ! \033[39m(\033[31m๑\033[39m╹◡╹\033[31m๑\033[39m)"
