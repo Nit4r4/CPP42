@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:56:52 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/21 16:13:56 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/23 11:19:22 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	main(void) {
 		Philomena.signForm(okForm);
 		std::cout << okForm;
 	}
-	catch (Bureaucrat::GradeTooLowException &tooLow) {
+	catch (Form::GradeTooLowException &tooLow) {
 		std::cout << tooLow.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &tooHigh)
+	catch (Form::GradeTooHighException &tooHigh)
 	{
 		std::cout << tooHigh.what() << std::endl;
 	}
@@ -47,10 +47,10 @@ int	main(void) {
 		Roger.signForm(okForm);
 		std::cout << okForm;
 	}
-	catch (Bureaucrat::GradeTooLowException &tooLow) {
+	catch (Form::GradeTooLowException &tooLow) {
 		std::cout << tooLow.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &tooHigh)
+	catch (Form::GradeTooHighException &tooHigh)
 	{
 		std::cout << tooHigh.what() << std::endl;
 	}
@@ -63,15 +63,15 @@ int	main(void) {
 		Form notOkForm("notOK", 150, 150);
 		std::cout << Sunny;
 		std::cout << Dante;
-		Sunny.signForm(notOkForm);
 		std::cout << " \n";
+		Sunny.signForm(notOkForm);
 		Dante.signForm(notOkForm);
 		std::cout << notOkForm;
 	}
-	catch (Bureaucrat::GradeTooLowException &tooLow) {
+	catch (Form::GradeTooLowException &tooLow) {
 		std::cout << tooLow.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &tooHigh)
+	catch (Form::GradeTooHighException &tooHigh)
 	{
 		std::cout << tooHigh.what() << std::endl;
 	}
@@ -91,10 +91,10 @@ int	main(void) {
 		std::cout << David.getName() << " ";
 		David.increaseGrade();
 	}
-	catch (Bureaucrat::GradeTooLowException &tooLow) {
+	catch (Form::GradeTooLowException &tooLow) {
 		std::cout << tooLow.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &tooHigh)
+	catch (Form::GradeTooHighException &tooHigh)
 	{
 		std::cout << tooHigh.what() << std::endl;
 	}
@@ -137,16 +137,16 @@ int	main(void) {
 		std::cout << isForm;
 		std::cout << "\n" << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException &tooLow) {
+	catch (Form::GradeTooLowException &tooLow) {
 		std::cout << tooLow.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &tooHigh)
+	catch (Form::GradeTooHighException &tooHigh)
 	{
 		std::cout << tooHigh.what() << std::endl;
 	}
 	std::cout << "--------------------------------------------" << std::endl;
 
-	std::cout << "Increase or decrease grades of Bureaucrats FORM: \n" << std::endl;
+	std::cout << "Increase or decrease grades of Bureaucrats Wrong FORM: \n" << std::endl;
 	try {
 		
 		Bureaucrat Philomena("Philo", 34);
@@ -189,5 +189,3 @@ int	main(void) {
 	}
 	std::cout << "--------------------------------------------" << std::endl;
 }
-
-/* pourquoi je n ai pas mes erreurs de Form qui sortent ???*/

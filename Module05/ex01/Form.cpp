@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:46:22 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/21 16:15:29 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/03/23 08:53:17 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ const char* Form::GradeTooLowException::what() const throw() {
 	return ("Sorry, your grade is to low !");
 }
 
-const char* Form::what() const throw() {
+const char* Form::GradeTooHighException::what() const throw() {
 	return ("Seriously ? Your grade is to high !");
 }
