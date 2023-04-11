@@ -10,10 +10,10 @@ BLUE	= \033[34m
 CYAN	= \033[36m
 MAGENTA = \033[35m
 
-NAME	= TypeID
+NAME	= Start
 
 
-SRCS	= main.cpp Base.cpp
+SRCS	= main.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 
