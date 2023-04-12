@@ -6,17 +6,14 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:16:30 by vferraro          #+#    #+#             */
-/*   Updated: 2023/04/11 15:59:09 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:51:12 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_TPP
 # define ARRAY_TPP
 
-# include <cstdlib>
-# include <iostream>
-# include <exception>
-# include <sstream>
+# include "Array.hpp"
 
 template<typename T>
 

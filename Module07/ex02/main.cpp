@@ -1,4 +1,5 @@
 #include "Array.tpp"
+#include "Array.hpp"
 
 template <typename T>
 const char	*Array<T>::MyException::what(void) const throw() {
