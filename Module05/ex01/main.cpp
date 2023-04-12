@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:56:52 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/23 11:19:22 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:11:57 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,11 +181,13 @@ int	main(void) {
 		std::cout << "\n" << std::endl;
 	}
 	catch (Form::GradeTooLowException &tooLow) {
-		std::cout << tooLow.what() << std::endl;
+		//std::cout << tooLow.what() << std::endl;
 	}
 	catch (Form::GradeTooHighException &tooHigh)
 	{
 		std::cout << tooHigh.what() << std::endl;
 	}
 	std::cout << "--------------------------------------------" << std::endl;
+
+	return 0;
 }

@@ -58,7 +58,7 @@ clean:
 					@echo ""
 
 fclean: 	clean
-					@${RM} $(NAME) $(textGen.replace)
+					@${RM} $(NAME) $(textGen.replace) trees_shrubbery
 					@printf "\r$(PURP)----- Deleting library ----\n"
 					@echo 🗑 "\033[31mEverything is deleting now !"
 					@printf "\r$(PURP)$(NAME) have been removed $(WHITE)¯\_$(PURP)(ツ)$(WHITE)_/¯$(RESET)\n"
