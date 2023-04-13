@@ -32,10 +32,11 @@ RM 		= rm -f
 .c.o:		%.o : %.cpp
 					$(CC)${CPPFLAGS} -I $< -o $(<:.cpp=.o)
 
+
+all: 		logo ${NAME}
+
 logo :
 			@$(LOGO_CPP)
-
-all: 		${NAME} 
 
 
 ${NAME}:	${OBJS} 

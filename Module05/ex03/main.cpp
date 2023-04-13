@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 13:56:52 by vferraro          #+#    #+#             */
-/*   Updated: 2023/03/23 15:03:03 by vferraro         ###   ########.fr       */
+/*   Updated: 2023/04/12 10:19:41 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int	main(void) {
 
 		NoName.signForm(*rrf);
 		NoName.executeForm(*rrf);
+		delete rrf;
 	}
 	return 0;
 }

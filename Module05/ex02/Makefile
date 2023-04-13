@@ -32,7 +32,7 @@ RM 		= rm -f
 .c.o:		%.o : %.cpp
 					@$(CC)${CPPFLAGS}
 
-all: 		logo ${NAME} 
+all: 		logo ${NAME}
 
 logo:
 			$(LOGO_CPP)
@@ -58,7 +58,7 @@ clean:
 					@echo ""
 
 fclean: 	clean
-					@${RM} $(NAME) $(textGen.replace)
+					@${RM} $(NAME) $(textGen.replace) Garden_shrubbery
 					@printf "\r$(PURP)----- Deleting library ----\n"
 					@echo 🗑 "\033[31mEverything is deleting now !"
 					@printf "\r$(PURP)$(NAME) have been removed $(WHITE)¯\_$(PURP)(ツ)$(WHITE)_/¯$(RESET)\n"
