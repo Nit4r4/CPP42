@@ -32,12 +32,7 @@ int easyfind(T& type, int n){
 
 
 
-
-
-	// std::cout << "Voici les valeurs du vector : " << std::endl;
-	// for (int i = 0; i < v1.size(); i++) {
-	// 	std::cout << v1[i] << std::endl;
-	// }
+/* lst1.end() ne correspond pas au ernier element de la liste, mais que le dernier element a ete depasse*/
 
 
 

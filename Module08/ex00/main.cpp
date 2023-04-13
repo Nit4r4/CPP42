@@ -1,5 +1,9 @@
 #include "easyfind.hpp"
 
+// void forEachInt(int i) {
+// 	std::cout << i << std::endl;
+// }
+
 void vector() {
 	std::vector<int> v1; //vecteur of integer nameed v1
 
@@ -12,6 +16,12 @@ void vector() {
 	for (std::vector<int>::size_type i = 0; i < v1.size(); i++) {
 		std::cout << v1[i] << std::endl;
 	}
+
+	// std::cout << "\n";
+	// std::cout << "Avec la methode for_each : \n";
+  	// for_each (v1.begin(), v1.end(), forEachInt);
+  	// std::cout << '\n';
+
 	std::cout << "\n";
 	int values[] = { 20, 42, -28, -82 };
 	int numValues = sizeof(values) / sizeof(values[0]);
