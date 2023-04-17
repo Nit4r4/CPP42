@@ -4,24 +4,28 @@
 # include <iostream>
 # include <string>
 # include <algorithm>
+# include <vector>
 
 #endif
 
 class Span {
 	private:
-		unsigned int	_N;
+		unsigned int		_N;
+		int					_maxN;
+		std::vector<int>	_vector;
+
 	public:
 		Span();
 		Span(unsigned int N);
 		~Span();
-		Span(const Span &cpy);
+		Span(Span const &cpy);
 		Span &operator=(const Span &assign);
 
-		addNumber() {
-			if (N)
-				throw 
+		void	addNumber(int nbr);
+		int		shortestSpan(void);
+		int		longestSpan(void);
+
+		class fullNumber : public std::exception {
+			const char *what() const throw();
 		}
 };
-
-shortestSpan() {}
-longestSpan() {}
