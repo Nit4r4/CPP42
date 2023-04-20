@@ -13,7 +13,7 @@ MAGENTA = \033[35m
 NAME	= Span
 
 
-SRCS	= main.cpp Span.cpp
+SRCS	= main.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 

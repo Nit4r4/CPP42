@@ -1,31 +1,39 @@
 #ifndef SPAN_HPP
-#define SPAN_HPP
+# define SPAN_HPP
 
 # include <iostream>
-# include <string>
-# include <algorithm>
 # include <vector>
-
-#endif
+# include <algorithm>
+# include <limits>
 
 class Span {
-	private:
-		unsigned int		_N;
-		int					_maxN;
-		std::vector<int>	_vector;
+public:
+	Span(unsigned int N);
+	~Span();
+	Span(const Span& copy);
+	Span& operator=(const Span& assign);
 
+	void addNumber(int n);
+	template <typename InputIterator>
+	void addNumber(InputIterator begin, InputIterator end);
+
+	int shortestSpan();
+	int longestSpan();
+
+	class SpanException : public std::exception {
 	public:
-		Span();
-		Span(unsigned int N);
-		~Span();
-		Span(Span const &cpy);
-		Span &operator=(const Span &assign);
+		SpanException(const char* msg) : _msg(msg) {}
+		const char* what() const throw() { 
+			return _msg;
+			}
 
-		void	addNumber(int nbr);
-		int		shortestSpan(void);
-		int		longestSpan(void);
+	private:
+		const char* _msg;
+	};
 
-		class fullNumber : public std::exception {
-			const char *what() const throw();
-		}
+private:
+	unsigned int _N;
+	std::vector<int> _nums;
 };
+
+#endif
