@@ -21,9 +21,22 @@ void Span::addNumber(int n) {
 	_nums.push_back(n);
 }
 
+// template <typename InputIterator>
+// void Span::addNumber(InputIterator begin, InputIterator end) {
+// 	if (_nums.size() + std::distance(begin, end) > _N) {
+// 		throw SpanException("Cannot add more numbers to Span.");
+// 		return ;
+// 	}
+// 	_nums.insert(_nums.end(), begin, end);
+// }
+
 template <typename InputIterator>
 void Span::addNumber(InputIterator begin, InputIterator end) {
-	if (_nums.size() + std::distance(begin, end) > _N) {
+	size_t count = 0;
+	for (InputIterator it = begin; it != end; ++it) {
+		++count;
+	}
+	if (_nums.size() + count > _N) {
 		throw SpanException("Cannot add more numbers to Span.");
 		return ;
 	}

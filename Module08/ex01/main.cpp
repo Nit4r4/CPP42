@@ -109,8 +109,8 @@ int	intMainDixMille() {
 	std::cout << "\nBIG NUMBERS TEST :" << std::endl;
 	Span sp = Span(BigNum);
 
-	std::srand(std::time(nullptr));
-	// std::srand(std::time(nullptr) + std::chrono::high_resolution_clock::now().time_since_epoch().count()); // pour lancer l execution plus rapidement et avoir des nombres differents
+	std::srand(std::time(NULL));
+	// std::srand(std::time(NULL) + std::chrono::high_resolution_clock::now().time_since_epoch().count()); // pour lancer l execution plus rapidement et avoir des nombres differents
 	for (int i = 0; i < BigNum; i++) {
 		int random_number = std::rand() % BigNum;
 		sp.addNumber(random_number);
