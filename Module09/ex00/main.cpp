@@ -20,9 +20,27 @@ int	main(int argc, char **argv) {
 		return 1;
 	}
 
-	std::map<string, float> map//container<clef, valeur> nomVariable
+	std::map<string, float> map;//container<clef, valeur> nomVariable
 
 	// Lire et traiter les données du fichier ici...
+
+	try {
+			//quelque chose
+		}
+	catch (BitcoinExchange::BtcException &e) {
+		std::cerr << "Error : too large number." << e.what() << std::endl;
+	}
+		try {
+			//quelque chose
+		}
+	catch (BitcoinExchange::BtcException &e) {
+		std::cerr << "Error: bad input => 2001-42-42" << e.what() << std::endl;
+	}	try {
+			//quelque chose
+		}
+	catch (BitcoinExchange::BtcException &e) {
+		std::cerr << "Error : not a positive number." << e.what() << std::endl;
+	}
 
 	file.close();
 	return 0;

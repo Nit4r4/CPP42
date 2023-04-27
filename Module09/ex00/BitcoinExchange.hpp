@@ -20,8 +20,18 @@ class BitcoinExchange {
 		float	getData(void) const; //recuperer le taux de change et les valeur
 
 		//gestion d erreur try and catch pour le fichierde comparaison entré en parametre lors de la compilation (input)
-		class MyException : public std::exception {
-			virtual const char *what() const throw();
-		};
+		// class MyException : public std::exception {
+		// 	virtual const char *what() const throw();
+		// };
+		class BtcException : public std::exception {
+		public:
+			BtcException(const char* msg) : _msg(msg) {}
+			const char* what() const throw() { 
+				return _msg;
+				}
+
+		private:
+			const char* _msg;
+	};
 
 };
