@@ -9,8 +9,8 @@
 
 class BitcoinExchange {
 	private:
+		float	_value;
 		std::map<std::string, float> _exchangeRates;
-		float   _value;
 
 	public:
 		BitcoinExchange();
@@ -18,23 +18,23 @@ class BitcoinExchange {
 		BitcoinExchange(const BitcoinExchange &copy);
 		BitcoinExchange &operator=(const BitcoinExchange &assign);
 
-		void	loadExchangeRates(const std::string& filename); // charge les données de taux de change à partir d'un fichier CSV
-		float	getExchangeRate(const std::string& date) const; // récupère le taux de change pour une date donnée
-		float	getInputValue(const std::string& date) const; // recuperer les valeurs par date
-		std::string	getInputErrors(const std::string& date) const; //recuperer les errors
-		void	printProductResult(void); //imprimer sur la sortie standard les resultats et les erreurs ligne par ligne
-		void	BitcoinExchange::loadData(const std::string& filename);
+		void	setData(float product); // calculer le produit tdc * value = product
+		float	getData(void) const; //recuperer le taux de change et les valeur
 
+		//gestion d erreur try and catch pour le fichierde comparaison entré en parametre lors de la compilation (input)
+		// class MyException : public std::exception {
+		// 	virtual const char *what() const throw();
+		// };
 		class BtcException : public std::exception {
 		public:
 			BtcException(const char* msg) : _msg(msg) {}
 			const char* what() const throw() { 
 				return _msg;
-			}
+				}
 
 		private:
 			const char* _msg;
-		};
+	};
 
 };
 
