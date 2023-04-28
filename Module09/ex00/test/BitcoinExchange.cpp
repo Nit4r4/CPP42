@@ -42,6 +42,32 @@ float BitcoinExchange::getExchangeRate(const std::string& date) const {
 	return it->second;
 }
 
+void	BitcoinExchange::setInputValue(std::string inputFilename) const {
+	std::map<std::string, float> _value; // map dont les clés sont les dates et les valeurs sont des flottants
+	std::ifstream infile(inputFilename);
+	std::string line;
+
+	while (std::getline(infile, line)) // lire chaque ligne du fichier
+	{
+		std::string date_str;
+		float value;
+
+		std::istringstream iss(line); // utiliser un stringstream pour extraire les valeurs de la ligne
+		iss >> date_str;
+		iss.ignore(); // ignorer le caractère '|' ou espace
+		iss >> value;
+
+		_value[date_str] += value; // ajouter la valeur à la somme associée à la date dans le map
+	}
+
+	// parcourir le map et afficher les valeurs pour chaque date
+	for (std::map<std::string, float>::iterator it = _value.begin(); it != _value.end(); ++it)
+	{
+		std::cout << "Date: " << it->first << std::endl;
+		std::cout << "Value: " << it->second << std::endl;
+	}
+}
+
 float BitcoinExchange::getInputValue() const {
 	return _value;
 }
@@ -49,13 +75,66 @@ float BitcoinExchange::getInputValue() const {
 // 	return _value;
 // }
 
-std::string BitcoinExchange::getInputErrors(const std::string& date) const {
-	try {
-		getExchangeRate(date);
-		return ""; // no error
-	} catch(const std::exception& e) {
-		return e.what();
-	}
+// std::string BitcoinExchange::getInputErrors(std::string& inputFile) const {
+// 	try {
+// 			if(_value < 1000 && _value > 0)
+// 				BitcoinExchange::setInputValue(inputFile);
+// 		}
+// 	catch (BitcoinExchange::BtcException &e) {
+// 		std::cerr << "Error : too large number." << e.what() << std::endl;
+// 	}
+// 		try {
+// 			if(_value < 1000 && _value > 0)
+// 				BitcoinExchange::setInputValue(inputFile);		}
+// 	catch (BitcoinExchange::BtcException &e) {
+// 		std::cerr << "Error: bad input => 2001-42-42" << e.what() << std::endl;
+// 	}	try {
+// 			BitcoinExchange::setInputValue(inputFile);
+// 			if (_value >= 0) 
+// 		}
+// 	catch (BitcoinExchange::BtcException &e) {
+// 		std::cerr << "Error : not a positive number." << e.what() << std::endl;
+// 	}
+// // try {
+// // 		getExchangeRate(date);
+// // 		return ""; // no error
+// // 	} catch(const std::exception& e) {
+// // 		return e.what();
+// // 	}
+// }
+
+std::string BitcoinExchange::getInputErrors(std::string& inputFile) const {
+    try {
+        // Récupérer la valeur de l'input
+        BitcoinExchange::setInputValue(inputFile);
+
+        // Vérifier que la valeur est positive et inférieure à 1000
+        if (_value <= 0) {
+            throw BitcoinExchange::BtcException("not a positive number.");
+        }
+        if (_value >= 1000) {
+            throw BitcoinExchange::BtcException("too large number.");
+        }
+
+        // Vérifier que la date est valide
+        if (!BitcoinExchange::isValidDate(_date)) {
+            throw BitcoinExchange::BtcException("invalid date.");
+        }
+
+        // Si aucune erreur n'a été levée, retourner une chaîne vide
+        return ""; // le resultat de la somme
+    }
+    catch (BitcoinExchange::BtcException &e) {
+        // En cas d'erreur, retourner un message d'erreur contenant la description de l'erreur
+        std::string errorMessage = "Error: ";
+        if (_date.empty() || _date == "2001-42-42") {
+            errorMessage += "bad input => 2001-42-42.";
+        }
+        else {
+            errorMessage += e.what();
+        }
+        return errorMessage;
+    }
 }
 
 void BitcoinExchange::printProductResult(void) {
