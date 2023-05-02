@@ -14,14 +14,25 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-	std::ifstream file(argv[1]);
-	if (!file.is_open()) {
-		std::cerr << "Failed to open file " << argv[1] << std::endl;
-		return 1;
-	}
+	
+	//verifier si j ai une data base..... recuperer la data base dans une map
+	// std::string fileDB = "data.csv";
+	// if (!fileDB.is_open()) {
+	// 	std::cerr << "Failed to open file " << fileDB << std::endl;
+	// 	return 1;
+	// }
+
+	
+	
+	// std::ifstream file(argv[1]); //input.txt
+	// if (!file.is_open()) {
+	// 	std::cerr << "Failed to open file " << argv[1] << std::endl;
+	// 	return 1;
+	// }
 
 	try {
-		exchange.loadExchangeRates("data.csv");
+		exchange.loadExchangeRates();
+		exchange.getInputValue();
 		exchange.printProductResult();
 	} catch (const std::exception& e) {
 		std::cerr << "Error: " << e.what() << std::endl;
