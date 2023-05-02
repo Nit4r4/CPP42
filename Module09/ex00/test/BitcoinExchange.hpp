@@ -10,6 +10,8 @@
 # include <stdlib.h>
 # include <cctype> //isdigit
 
+
+
 #define ERR "\e[31mError : \e[0m"
 
 class BitcoinExchange {
