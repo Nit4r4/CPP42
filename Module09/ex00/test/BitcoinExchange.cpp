@@ -53,62 +53,75 @@ float BitcoinExchange::getExchangeRate(const std::string& date) const {
 	return it->second;
 }
 
-void	BitcoinExchange::setInputValue(std::string inputFile) const {
+void	BitcoinExchange::setInputValue(std::string inputFile) {
 	// std::map<std::string, float> _value; // map dont les clés sont les dates et les valeurs sont des flottants
 	std::ifstream infile(inputFile);
 	std::string line;
 
-	std::getline(fileDB, line);
+	// if (!infile.is_open()) {
+	// 	std::cerr << "Failed to open file : " << inputFile << std::endl;
+	// 	return ;
+	// }
+	std::getline(infile, line);
 	if (line != "date | value")
 		throw BtcException("Wrong header in file.");
 	while (std::getline(infile, line)) // lire chaque ligne du fichier
 	{
 		size_t	found = line.find(" | ");
 		if (line.size() < 14 || found == std::string::npos) {
-			std::cout << ERR << "Bad input => " << line << std::endl;
+			if (line.empty()) {
+				std::cout << ERR << "Bad input => empty line" << line << std::endl;
+				continue;
+			}
+			else {
+				std::cout << ERR << "Bad input => " << line << std::endl;
+				continue;
+			}
+		}
+		// if (line.empty()) {
+		// 	std::cout << ERR << "Bad input => empty line" << line << std::endl;
+		// 	continue;
+		// }
+		if (!isdigit(line[13])) {
+			if (line[13] == '-')
+				std::cout << ERR << "not a positive number." << std::endl;
+			else 
+				std::cout << ERR << "not a number." << std::endl;
 			continue;
 		}
-		if (_value <= 0) {
-			throw BtcException("not a positive number.");
-		}
-		if (_value >= 1000) {
-			throw BtcException("too large number.");
+		_value = atof(line.substr(13).c_str()); //float value at 13td place
+		if (_value > 1000) {
+			std::cout << ERR << "too large number." << std::endl;
+			continue;
 		}
 		// Vérifier que la date est valide
 		if (!isValidDate(line)) {
-			std::cout << "Error : Bad input => " << _year << "-" << _month << "-" << _day << std::endl;
-		std::string date_str;
-		float value;
-
-		std::istringstream iss(line); // utiliser un stringstream pour extraire les valeurs de la ligne
-		iss >> date_str;
-		iss.ignore(); // ignorer le caractère '|' ou espace
-		iss >> value;
-
-		_value[date_str] += value; // ajouter la valeur à la somme associée à la date dans le map
-	}
-
+			std::cout << ERR << "Bad input => " << _year << "-" << _month << "-" << _day << std::endl;
+			continue;
+		}
+		//std::cout << "value : " << _value << std::endl;
+		printProductResult(line);
 	// parcourir le map et afficher les valeurs pour chaque date
-	for (std::map<std::string, float>::iterator it = _value.begin(); it != _value.end(); ++it)
-	{
-		std::cout << "Date: " << it->first << std::endl;
-		std::cout << "Value: " << it->second << std::endl;
-	}
+	// for (std::map<std::string, float>::iterator it = _value.begin(); it != _value.end(); ++it)
+	// {
+	// 	std::cout << "Date: " << it->first << std::endl;
+	// 	std::cout << "Value: " << it->second << std::endl;
+	// }
 	}
 }
 
-bool	BitcoinExchange::isValidDate(std::string line) const {
-	//std::string format;
-//(line.substr(4, 1) == "-") && (line.substr(7, 1) == "-") && 
-	if (line.size() < 14 || ) {
+bool	BitcoinExchange::isValidDate(std::string line) {
+
+	if ((line.substr(4, 1) == "-") && (line.substr(7, 1) == "-")) {
+
 		_year = atoi(line.substr(0, 4).c_str()); //annee
-		std::cout << _year << std::endl;
+		//std::cout << _year << std::endl;
 
 		_month = atoi(line.substr(5, 2).c_str()); //mois
-		std::cout << _month <<std::endl;
+		//std::cout << _month <<std::endl;
 
 		_day = atoi(line.substr(8, 2).c_str()); //jour
-		std::cout << _day <<std::endl;
+		//std::cout << _day <<std::endl;
 
 		if (_year > 1000 && _year < 3000) {
 			if (_month >= 1 && _month <= 12) {
@@ -118,106 +131,61 @@ bool	BitcoinExchange::isValidDate(std::string line) const {
 			}
 		}
 	}
-	//format = 1000 a 3000 || 1 a 12 || 1 a 31 lire et comparer ????
 	return false;
 }
 
 float BitcoinExchange::getInputValue() const {
 	return _value;
 }
-// float BitcoinExchange::getInputValue(const std::string& date) const {
-// 	return _value;
-// }
 
-// std::string BitcoinExchange::getInputErrors(std::string& inputFile) const {
-// 	try {
-// 			if(_value < 1000 && _value > 0)
-// 				BitcoinExchange::setInputValue(inputFile);
+
+// void BitcoinExchange::printProductResult(void) {
+// 	std::cout << "Product result:" << std::endl;
+// 	std::cout << "---------------" << std::endl;
+
+// 	std::ifstream inputFile("input.txt");
+// 	//std::ofstream outputFile("output.txt");
+
+// 	std::string line;
+// 	while (std::getline(inputFile, line)) {
+// 		std::istringstream iss(line);
+// 		std::string date, amountStr;
+// 		float amount = 0.0;
+// 		if (!(iss >> date >> amountStr)) {
+// 			std::cerr << "Invalid input line: " << line << std::endl;
+// 			continue;
 // 		}
-// 	catch (BitcoinExchange::BtcException &e) {
-// 		std::cerr << "Error : too large number." << e.what() << std::endl;
-// 	}
 // 		try {
-// 			if(_value < 1000 && _value > 0)
-// 				BitcoinExchange::setInputValue(inputFile);		}
-// 	catch (BitcoinExchange::BtcException &e) {
-// 		std::cerr << "Error: bad input => 2001-42-42" << e.what() << std::endl;
-// 	}	try {
-// 			BitcoinExchange::setInputValue(inputFile);
-// 			if (_value >= 0) 
+// 			float rate = getExchangeRate(date);
+// 			float result = amount * rate;
+// 			outputFile << date << " " << result << std::endl;
+// 			std::cout << date << " " << result << std::endl;
+// 		} catch(const std::exception& e) {
+// 			outputFile << date << " " << e.what() << std::endl;
+// 			std::cerr << date << " " << e.what() << std::endl;
 // 		}
-// 	catch (BitcoinExchange::BtcException &e) {
-// 		std::cerr << "Error : not a positive number." << e.what() << std::endl;
 // 	}
-// // try {
-// // 		getExchangeRate(date);
-// // 		return ""; // no error
-// // 	} catch(const std::exception& e) {
-// // 		return e.what();
-// // 	}
+
+// 	inputFile.close();
+// 	outputFile.close();
 // }
 
-std::string BitcoinExchange::getInputErrors(std::string& inputFile) const {
-	try {
-		// Récupérer la valeur de l'input
-		BitcoinExchange::setInputValue(inputFile);
 
-		// Vérifier que la valeur est positive et inférieure à 1000
-		if (_value <= 0) {
-			throw BitcoinExchange::BtcException("not a positive number.");
-		}
-		if (_value >= 1000) {
-			throw BitcoinExchange::BtcException("too large number.");
-		}
+void BitcoinExchange::printProductResult(std::string line) {
+	//fonction qui compare chaque ligne et compare les dates et si les dates sont ok multiplie et imprime sur la sortie standard.
+	std::string inputFileDates;
 
-		// Vérifier que la date est valide
-		if (!BitcoinExchange::isValidDate(_date)) {
-			throw BitcoinExchange::BtcException("invalid date.");
-		}
+	inputFileDates = line.substr(0, 10); //donc les 9 premiers caracteres
 
-		// Si aucune erreur n'a été levée, retourner une chaîne vide
-		return ""; // le resultat de la somme
+	std::map<std::string, float>::const_iterator it = _exchangeRates.lower_bound(inputFileDates);
+	if ((it->first > inputFileDates) || it == _exchangeRates.end()) {// ca signifie quoi ?
+		if ((it) != _exchangeRates.begin()) {
+			it--;
+			std::cout << inputFileDates << " => " << _value << " = " << (it->second * _value) << std::endl;
+		}
+		else
+			std::cout << ERR << "“La route ? Là où on va, on n'a pas besoin de route !”" << std::endl;
 	}
-	catch (BitcoinExchange::BtcException &e) {
-		// En cas d'erreur, retourner un message d'erreur contenant la description de l'erreur
-		std::string errorMessage = "Error: ";
-		if (_date.empty() || _date == "2001-42-42") {
-			errorMessage += "bad input => 2001-42-42.";
-		}
-		else {
-			errorMessage += e.what();
-		}
-		return errorMessage;
-	}
-}
-
-void BitcoinExchange::printProductResult(void) {
-	std::cout << "Product result:" << std::endl;
-	std::cout << "---------------" << std::endl;
-
-	std::ifstream inputFile("input.txt");
-	std::ofstream outputFile("output.txt");
-
-	std::string line;
-	while (std::getline(inputFile, line)) {
-		std::istringstream iss(line);
-		std::string date, amountStr;
-		float amount = 0.0;
-		if (!(iss >> date >> amountStr)) {
-			std::cerr << "Invalid input line: " << line << std::endl;
-			continue;
-		}
-		try {
-			float rate = getExchangeRate(date);
-			float result = amount * rate;
-			outputFile << date << " " << result << std::endl;
-			std::cout << date << " " << result << std::endl;
-		} catch(const std::exception& e) {
-			outputFile << date << " " << e.what() << std::endl;
-			std::cerr << date << " " << e.what() << std::endl;
-		}
-	}
-
-	inputFile.close();
-	outputFile.close();
+	else
+		std::cout << inputFileDates << " => " << _value << " = " << (it->second * _value) << std::endl;
 }

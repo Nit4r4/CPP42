@@ -20,22 +20,25 @@ int main(int argc, char **argv) {
 	// if (!fileDB.is_open()) {
 	// 	std::cerr << "Failed to open file " << fileDB << std::endl;
 	// 	return 1;
-	// }
+	// } // mis dans la fonction
 
 	
 	
-	// std::ifstream file(argv[1]); //input.txt
-	// if (!file.is_open()) {
-	// 	std::cerr << "Failed to open file " << argv[1] << std::endl;
-	// 	return 1;
-	// }
+	std::ifstream file(argv[1]); //input.txt
+	if (!file.is_open()) {
+		std::cerr << "Failed to open file : " << argv[1] << std::endl;
+		return 1;
+	} // mis dans la fonciton
 
+	std::cout << "RESULTS IN FORMAT :" << std::endl;
+	std::cout << "DATE => VALUE = PRODUCT" << std::endl;
+	std::cout << "------------------------" << std::endl;
 	try {
 		exchange.loadExchangeRates();
-		exchange.getInputValue();
-		exchange.printProductResult();
+		exchange.setInputValue(argv[1]);
+		//exchange.printProductResult(); // mis dans la fonction
 	} catch (const std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cerr << ERR << e.what() << std::endl;
 		return 1;
 	}
 
