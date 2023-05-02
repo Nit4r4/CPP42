@@ -9,11 +9,15 @@
 # include <sstream>
 # include <stdlib.h>
 
+#define ERR "\e[31mError : \e[0m"
+
 class BitcoinExchange {
 	private:
 		std::map<std::string, float> _exchangeRates;
+		int		_year;
+		int		_month;
+		int		_day;
 		float	_value;
-		std::string	_date;
 
 	public:
 		BitcoinExchange();

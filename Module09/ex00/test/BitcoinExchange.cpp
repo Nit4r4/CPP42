@@ -53,13 +53,30 @@ float BitcoinExchange::getExchangeRate(const std::string& date) const {
 	return it->second;
 }
 
-void	BitcoinExchange::setInputValue(std::string inputFilename) const {
-	std::map<std::string, float> _value; // map dont les clés sont les dates et les valeurs sont des flottants
-	std::ifstream infile(inputFilename);
+void	BitcoinExchange::setInputValue(std::string inputFile) const {
+	// std::map<std::string, float> _value; // map dont les clés sont les dates et les valeurs sont des flottants
+	std::ifstream infile(inputFile);
 	std::string line;
 
+	std::getline(fileDB, line);
+	if (line != "date | value")
+		throw BtcException("Wrong header in file.");
 	while (std::getline(infile, line)) // lire chaque ligne du fichier
 	{
+		size_t	found = line.find(" | ");
+		if (line.size() < 14 || found == std::string::npos) {
+			std::cout << ERR << "Bad input => " << line << std::endl;
+			continue;
+		}
+		if (_value <= 0) {
+			throw BtcException("not a positive number.");
+		}
+		if (_value >= 1000) {
+			throw BtcException("too large number.");
+		}
+		// Vérifier que la date est valide
+		if (!isValidDate(line)) {
+			std::cout << "Error : Bad input => " << _year << "-" << _month << "-" << _day << std::endl;
 		std::string date_str;
 		float value;
 
@@ -77,19 +94,32 @@ void	BitcoinExchange::setInputValue(std::string inputFilename) const {
 		std::cout << "Date: " << it->first << std::endl;
 		std::cout << "Value: " << it->second << std::endl;
 	}
+	}
 }
 
-bool	BitcoinExchange::isValidDate(std::string _date) const {
+bool	BitcoinExchange::isValidDate(std::string line) const {
 	//std::string format;
-	int	year;
-	// int	month;
-	// int	day;
+//(line.substr(4, 1) == "-") && (line.substr(7, 1) == "-") && 
+	if (line.size() < 14 || ) {
+		_year = atoi(line.substr(0, 4).c_str()); //annee
+		std::cout << _year << std::endl;
 
-	year = atoi(_date.substr(0, 4).c_str()); //annee
-	std::cout << year << std::endl;
+		_month = atoi(line.substr(5, 2).c_str()); //mois
+		std::cout << _month <<std::endl;
 
+		_day = atoi(line.substr(8, 2).c_str()); //jour
+		std::cout << _day <<std::endl;
+
+		if (_year > 1000 && _year < 3000) {
+			if (_month >= 1 && _month <= 12) {
+				if (_day <= 31 && _day >= 1) {
+					return true;
+				}
+			}
+		}
+	}
 	//format = 1000 a 3000 || 1 a 12 || 1 a 31 lire et comparer ????
-	return true;
+	return false;
 }
 
 float BitcoinExchange::getInputValue() const {
