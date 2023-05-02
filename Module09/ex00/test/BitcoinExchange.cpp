@@ -17,15 +17,15 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &assign){
 }
 
 void BitcoinExchange::loadExchangeRates(void) {
-	std::string fileDB = "data.csv";
+	std::ifstream fileDB("data.csv");
 	if (!fileDB.is_open()) {
 		throw BtcException("Error: could not open file. ");
 	}
 	std::string line;
-	std::getline(file, line); // ignore header line
+	std::getline(fileDB, line); // ignore header line
 
 
-	while (std::getline(file, line))
+	while (std::getline(fileDB, line))
 	{
 		std::stringstream ss(line);
 		std::string dateStr, rateStr;
@@ -36,11 +36,12 @@ void BitcoinExchange::loadExchangeRates(void) {
 		float rate = std::atof(rateStr.c_str());
 		_exchangeRates[dateStr] = rate;
 	}
-	file.close();
-	for(std::map<std::string, float>::iterator it = _exchangeRates.begin(); it != _exchangeRates.end(); it++)
-	{
-		std::cout << (*it).first << " | " << (*it).second << std::endl;
-	}
+	fileDB.close();
+	// verification de la map :
+	// for(std::map<std::string, float>::iterator it = _exchangeRates.begin(); it != _exchangeRates.end(); it++)
+	// {
+	// 	std::cout << (*it).first << " | " << (*it).second << std::endl;
+	// }
 }
 
 
