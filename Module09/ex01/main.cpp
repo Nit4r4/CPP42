@@ -12,34 +12,52 @@ int	main(int argc, char **argv) {
 
 	std::string calcul	= argv[1]; //gerrer les " " ?
 
-	
-	// if (calcul != "") //avec un find ??
-	// 	throw BtcException("String has to be in  ");
-	// while (std::getline(infile, line)) // lire chaque ligne du fichier
-	// {
-	// 	size_t	found = calcul.find("  ");
-	// 	if (found == std::string::npos) {
-	// 		if (calcul.empty()) {
-	// 			std::cout << ERR << "empty line" << line << std::endl;
-	// 			continue;
+	// for(unsigned long i = 0; i < calcul.length(); i++) {
+	// 	if (calcul[i] < 0) {
+	// 		throw RPN::RPNException("no positive numbers");
+	// 	}
+	// }
+
+	// for(unsigned long i = 0; i < calcul.length(); i++) {
+	// 	if (calcul[i] < 0) {
+	// 			std::cout << ERR << "not all numbers are positive." << std::endl;
+	// 			break;
+	// 	}
+	// }
+
+	// for(unsigned long i = 0; i < calcul.length(); i++) {
+	// 	if (calcul.find(" - ") != std::string::npos) {
+	// 		if (calcul.find("-") != std::string::npos) {
+	// 			std::cout << ERR << "not all numbers are positive." << std::endl;
+	// 			break;
 	// 		}
 	// 		else {
-	// 			std::cout << ERR << "Bad input => " << line << std::endl;
 	// 			continue;
 	// 		}
 	// 	}
+	// }
 
-		if (!isdigit(calcul[0])) {
-			for(unsigned long i = 0; i < calcul.length(); i++) {
-				if (calcul.find("-") != std::string::npos)
-					std::cout << ERR << "not all are positive numbers." << std::endl;
-			else 
-				std::cout << ERR << "not in a string." << std::endl;
-			continue;
-		}
-	}
+	// for(unsigned long i = 0; i < calcul.length(); i++) {
+	// 	if (rpn.readNumber(i) < 0)
+	// 	std::cerr << ERR << "not all numbers are positive." << std::endl;
+	// 	return 0;
+	// }
+
+
+	// for(unsigned long i = 0; i < calcul.length(); i++) {
+	// //	if (c == '+'|| c == '-'|| c == '*'|| c == '/') {}
+	// 	if (!isdigit(calcul[i])) {
+	// 			std::cerr << ERR << "not a digit" << std::endl;
+	// 			break;
+	// 		}
+	// 	else {
+	// 		continue;
+	// 	}
+	// }
+
 	
 	//rpn.postfixEval(calcul);
+	//rpn.isAllowedNumber(calcul);
 	std::cout << rpn.postfixEval(calcul) << std::endl;
 	// try {
 	// 	rpn.postfixEval(calcul);

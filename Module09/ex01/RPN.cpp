@@ -15,6 +15,15 @@ RPN& RPN::operator=(const RPN& assign) {
 	return *this;
 }
 
+// void	RPN::isAllowedNumber(std::string str) {
+// 	for (unsigned long i = 0; i < str.length(); i++) {
+// 		if (num < 0 || num > 9) {
+// 			std::cout << ERR << "not allowed number(s)." << std::endl;
+// 			break;
+// 		}
+// 	}
+// }
+
 int RPN::readNumber(char c) {
 	int value;
 	value = c;
@@ -22,13 +31,13 @@ int RPN::readNumber(char c) {
 }
 
 int RPN::isOperator(char c){
-	if(c == '+'|| c == '-'|| c == '*'|| c == '/' || c == '^')
+	if(c == '+'|| c == '-'|| c == '*'|| c == '/')
 		return 1;//character is an operator
 	return -1;//not an operator
 }
 
 int RPN::isOperand(char c) {
-	if(c >= '0' && c <= '9')
+	if(isdigit(c)) // c >= '0' && c <= '9'
 		return 1;//character is an operand
 	return -1;//not an operand
 }

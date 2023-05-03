@@ -7,6 +7,7 @@
 # include <cmath>
 # include <stack>
 # include <climits>
+#include <stdlib.h>
 
 #define ERR "\e[31mError : \e[0m"
 
@@ -33,6 +34,7 @@ class	RPN {
 			const char* _msg;
 		};
 
+		void isAllowedNumber(std::string str);
 		int readNumber(char c);
 		int isOperator(char c);
 		int isOperand(char c);
