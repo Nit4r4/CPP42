@@ -12,6 +12,8 @@ RPN& RPN::operator=(const RPN& assign) {
 	_stack = assign._stack;
 	_a = assign._a;
 	_b = assign._b;
+	_countNum = assign._countNum;
+	_countOP = assign._countOP;
 	return *this;
 }
 
@@ -23,6 +25,22 @@ RPN& RPN::operator=(const RPN& assign) {
 // 		}
 // 	}
 // }
+
+	void setNum(int num) { // verifier si ca fonctionne et tester avec dans le main
+		_countNum = num;
+	}
+
+	int getNum() {
+		return _countNum;
+	}
+
+	void setOP(int operator) {
+		_countOP = operator;
+	}
+
+	int getOP() {
+		return _countOP;
+	}
 
 int RPN::readNumber(char c) {
 	int value;
@@ -85,14 +103,38 @@ int RPN::operation(char op) {
 
 
 
+int RPN::postfixEval(std::string postfix) {
+
+	std::string::iterator it;
+	for (it = postfix.begin(); it != postfix.end(); it++) {
+		// std::cout << isOperator(*it) << std::endl;
+		// if (_countOP == (_countNum + 1)) {
+			if (isOperator(*it) != false) {
+				// std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
+				_a = _stack.top();
+				_stack.pop();
+				_b = _stack.top();
+				_stack.pop();
+				_stack.push(operation(*it));
+			}
+		else if (isOperand(*it) != false) {
+			_stack.push(readNumber(*it));
+			}
+		// }
+	}
+	return _stack.top();
+		// std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
+		// return 3;
+}
+
 // int RPN::postfixEval(std::string postfix) {
 
-// 	std::string::iterator it;
-// 	for (it = postfix.begin(); it != postfix.end(); it++){
-// 		// std::cout << isOperator(*it) << std::endl;
-// 		if (isOperator(*it) != false) {
-// 			// std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
+// 	for (unsigned long i = 0; i < postfix.length(); i++){
+// 		if (isOperator(postfix[i]) != false) {
 // 			if (_countOP != (_countNum - 1)) {
+// 				// std::cout << "\e[31mOperator : " << "\e[0m" << isOperator(postfix[i]) << std::endl;
+// 				// std::cout << "\e[32mOperand : " << "\e[0m" << isOperand(postfix[i]) << std::endl;
+// 				// std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
 // 				std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
 // 				return 3;
 // 			}
@@ -100,38 +142,17 @@ int RPN::operation(char op) {
 // 			_stack.pop();
 // 			_b = _stack.top();
 // 			_stack.pop();
-// 			_stack.push(operation(*it));
+// 			_stack.push(operation(postfix[i]));
 // 		}
-// 	else if (isOperand(*it) != false) {
-// 		_stack.push(readNumber(*it));
+// 	else if (isOperand(postfix[i]) != false) {
+// 		_stack.push(readNumber(postfix[i]));
 // 		}
+// 	// std::cout << "\e[31mOperator : " << "\e[0m" << isOperator(postfix[i]) << std::endl;
+// 	// std::cout << "\e[32mOperand : " << "\e[0m" << isOperand(postfix[i]) << std::endl;
+// 	// std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
 // 	}
 // 	return _stack.top();
 // }
-
-int RPN::postfixEval(std::string postfix) {
-
-	for (unsigned long i = 0; i < postfix.length(); i++){
-		std::cout << "Operator : " << isOperator(postfix[i]) << std::endl;
-		if (isOperator(postfix[i]) != false) {
-			std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
-			if (_countOP != (_countNum - 1)) {
-				std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
-				return 3;
-			}
-			_a = _stack.top();
-			_stack.pop();
-			_b = _stack.top();
-			_stack.pop();
-			_stack.push(operation(postfix[i]));
-		}
-	else if (isOperand(postfix[i]) != false) {
-			std::cout << "Operand : " << isOperand(postfix[i]) << std::endl;
-		_stack.push(readNumber(postfix[i]));
-		}
-	}
-	return _stack.top();
-}
 
 		// if (isOperand(*it) != false && isOperator(*it) != true) {
 		// 	std::cerr << ERR << "character " << *it << " not allowed." << std::endl;

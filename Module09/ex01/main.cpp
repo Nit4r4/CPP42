@@ -68,14 +68,19 @@ int	main(int argc, char **argv) {
 	// 	break;
 	// }
 
-	
-	try {
-		int result = rpn.postfixEval(calcul);
-		if (result != 3)
-			std::cout << result << std::endl;
-	} catch (const std::exception& e) {
-		std::cerr << e.what() << std::endl;
-		return 1;
+	if (getOP() == (getNum() + 1)) {
+		try {
+			int result = rpn.postfixEval(calcul);
+			if (result != 3)
+				std::cout << result << std::endl;
+		} catch (const std::exception& e) {
+			std::cerr << e.what() << std::endl;
+			return 1;
+		}
+	}
+	else {
+		std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
+		return 3;
 	}
 
 
