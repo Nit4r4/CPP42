@@ -85,23 +85,49 @@ int RPN::operation(char op) {
 
 
 
+// int RPN::postfixEval(std::string postfix) {
+
+// 	std::string::iterator it;
+// 	for (it = postfix.begin(); it != postfix.end(); it++){
+// 		// std::cout << isOperator(*it) << std::endl;
+// 		if (isOperator(*it) != false) {
+// 			// std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
+// 			if (_countOP != (_countNum - 1)) {
+// 				std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
+// 				return 3;
+// 			}
+// 			_a = _stack.top();
+// 			_stack.pop();
+// 			_b = _stack.top();
+// 			_stack.pop();
+// 			_stack.push(operation(*it));
+// 		}
+// 	else if (isOperand(*it) != false) {
+// 		_stack.push(readNumber(*it));
+// 		}
+// 	}
+// 	return _stack.top();
+// }
+
 int RPN::postfixEval(std::string postfix) {
 
-	std::string::iterator it;
-	for (it = postfix.begin(); it != postfix.end(); it++){
-		if (isOperator(*it) != false) {
-			if (_countOP >= _countNum) {
-			std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
-			return 3;
-		}
+	for (unsigned long i = 0; i < postfix.length(); i++){
+		std::cout << "Operator : " << isOperator(postfix[i]) << std::endl;
+		if (isOperator(postfix[i]) != false) {
+			std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
+			if (_countOP != (_countNum - 1)) {
+				std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
+				return 3;
+			}
 			_a = _stack.top();
 			_stack.pop();
 			_b = _stack.top();
 			_stack.pop();
-			_stack.push(operation(*it));
+			_stack.push(operation(postfix[i]));
 		}
-	else if (isOperand(*it) != false) {
-		_stack.push(readNumber(*it));
+	else if (isOperand(postfix[i]) != false) {
+			std::cout << "Operand : " << isOperand(postfix[i]) << std::endl;
+		_stack.push(readNumber(postfix[i]));
 		}
 	}
 	return _stack.top();

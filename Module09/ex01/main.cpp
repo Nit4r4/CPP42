@@ -71,7 +71,7 @@ int	main(int argc, char **argv) {
 	
 	try {
 		int result = rpn.postfixEval(calcul);
-		if (!3)
+		if (result != 3)
 			std::cout << result << std::endl;
 	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
