@@ -38,27 +38,51 @@ int	main(int argc, char **argv) {
 	// }
 
 	// for(unsigned long i = 0; i < calcul.length(); i++) {
-	// 	if (rpn.readNumber(i) < 0)
-	// 	std::cerr << ERR << "not all numbers are positive." << std::endl;
-	// 	return 0;
-	// }
-
-
-	// for(unsigned long i = 0; i < calcul.length(); i++) {
-	// //	if (c == '+'|| c == '-'|| c == '*'|| c == '/') {}
-	// 	if (!isdigit(calcul[i])) {
-	// 			std::cerr << ERR << "not a digit" << std::endl;
-	// 			break;
-	// 		}
-	// 	else {
-	// 		continue;
+	// 	if (_countOP >= _countNum) {
+	// 		std::cerr << ERR << "not all numbers are positive." << std::endl;
+	// 		break;
 	// 	}
 	// }
 
+/* pas plus de deux chiffres consecutifs */
+// si il y a plus d operateur que d operand c est faux
+//la division par zero est impossible
+
+	// for(unsigned long i = 0; i < calcul.length(); i++) { //si tout ok on commence sinon erreurs 
+	// 	// if (c == '+'|| c == '-'|| c == '*'|| c == '/') {}
+	// 	if (rpn.isOperator(calcul[i])) {
+	// 		if (rpn.isOperand(i)) {
+	// 			std::cout << rpn.postfixEval(calcul) << std::endl;
+	// 			continue;
+	// 		}
+	// 		else {
+	// 			std::cerr << ERR << "operator not conforme" << std::endl;
+	// 			break;
+	// 		}
+	// 	}
+	// 	else {
+	// 		std::cerr << ERR << "not a positive digit" << std::endl;
+	// 		break;
+	// 	}
+	// 	std::cerr << ERR << "nike ta grosse daronne" << std::endl;
+	// 	break;
+	// }
+
 	
+	try {
+		int result = rpn.postfixEval(calcul);
+		if (!3)
+			std::cout << result << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
+
+
+
 	//rpn.postfixEval(calcul);
 	//rpn.isAllowedNumber(calcul);
-	std::cout << rpn.postfixEval(calcul) << std::endl;
+	//std::cout << rpn.postfixEval(calcul) << std::endl;
 	// try {
 	// 	rpn.postfixEval(calcul);
 	// 	std::cout << "The result is: " << postfixEval(calcul) << std::endl;

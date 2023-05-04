@@ -16,6 +16,8 @@ class	RPN {
 	std::stack<int> _stack; //declaration de la stack
 	int	_a; //op1
 	int	_b; //op2
+	int	_countOP;//compteur d operateur
+	int	_countNum; //compteur de chiffre
 
 	public:
 		RPN();
@@ -36,8 +38,8 @@ class	RPN {
 
 		void isAllowedNumber(std::string str);
 		int readNumber(char c);
-		int isOperator(char c);
-		int isOperand(char c);
+		bool isOperator(char c);
+		bool isOperand(char c);
 		int operation(char op);
 		int postfixEval(std::string postfix);
 
