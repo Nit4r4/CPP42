@@ -9,7 +9,7 @@ int	main(int argc, char **argv) {
 
 	std::string filename = argv[1];
 	std::string extension = filename.substr(filename.size() - 4);
-	if (extension != ".txt") {
+	if (extension != ".txt" && extension != ".csv") {
 		std::cerr << "Invalid file format, must be .txt" << std::endl;
 		return 1;
 	}
@@ -20,8 +20,8 @@ int	main(int argc, char **argv) {
 		return 1;
 	}
 
-	std::map<string, float> map;//container<clef, valeur> nomVariable
-	std::map<std::string, std::vector<float> > data; // Stocke les données par date
+	// std::map<string, float> map;//container<clef, valeur> nomVariable
+	// std::map<std::string, std::vector<float> > data; // Stocke les données par date
 
 
 	// Lire et traiter les données du fichier ici...

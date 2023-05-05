@@ -66,6 +66,17 @@ fclean: 	clean
 
 re:			fclean all
 
+test:		$(NAME) 
+			./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+			./RPN "7 7 * 7 -"
+			./RPN "1 2 * 2 / 2 * 2 4 - +"
+			./RPN "1 0 * 2 / 2 * 2 4 - +"
+			./RPN "1 0 * 2 / 2 * 2a 4 - +"
+			./RPN "1 0 * 2 / 2 * a 4 - +"
+			./RPN "1 0 * 2 / 2 * 32 4 - +"
+			./RPN "1 -2 * 2 / 2 * 2 4 - +"
+			./RPN "(1 + 1)"
+
 leak: 		all
 					leaks -atExit -- ./$(NAME)
 
