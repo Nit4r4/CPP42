@@ -32,7 +32,7 @@ int RPN::readNumber(char c) {
 	return int(value -'0'); //return int from character
 }
 
-bool RPN::isOperator(char c){
+bool RPN::isOperator(char c) {
 	if(c == '+'|| c == '-'|| c == '*'|| c == '/') {
 		_countOP++;
 		return true;//character is an operator
@@ -55,8 +55,11 @@ int RPN::operation(char op) {
 		return _b - _a;
 	else if(op == '*')
 		return _b * _a;
-	else if(op == '/')
+	else if(op == '/') {
+		if (_a == 0) 
+			throw RPN::RPNException("Division by zero not possible!");
 		return _b / _a;
+	}
 	else 
 		return INT_MIN; //return negative infinity
 }
