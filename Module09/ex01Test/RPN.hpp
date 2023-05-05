@@ -25,7 +25,10 @@ class	RPN {
 		RPN(const RPN& copy);
 		RPN& operator=(const RPN& assign);
 
+		// void setNum(int num);
 		int getNum();
+
+		// void setOP(int operator);
 		int getOP();
 
 		class RPNException : public std::exception {
