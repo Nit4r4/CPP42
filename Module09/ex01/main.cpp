@@ -67,34 +67,34 @@ int	main(int argc, char **argv) {
 	// 	std::cerr << ERR << "nike ta grosse daronne" << std::endl;
 	// 	break;
 	// }
-
-	if (getOP() == (getNum() + 1)) {
-		try {
-			int result = rpn.postfixEval(calcul);
-			if (result != 3)
-				std::cout << result << std::endl;
-		} catch (const std::exception& e) {
-			std::cerr << e.what() << std::endl;
-			return 1;
-		}
-	}
-	else {
-		std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
-		return 3;
-	}
-
-
-
-	//rpn.postfixEval(calcul);
-	//rpn.isAllowedNumber(calcul);
-	//std::cout << rpn.postfixEval(calcul) << std::endl;
-	// try {
-	// 	rpn.postfixEval(calcul);
-	// 	std::cout << "The result is: " << postfixEval(calcul) << std::endl;
-	// } catch (const std::exception& e) {
-	// 	std::cerr << ERR << e.what() << std::endl;
-	// 	return 1;
+	// int result = rpn.postfixEval(calcul);
+	// if (rpn.getNum() == (rpn.getOP() + 1)) {
+	// 	try {
+	// 		// int result = rpn.postfixEval(calcul);
+	// 		if (result != 3)
+	// 			std::cout << result << std::endl;
+	// 	} catch (const std::exception& e) {
+	// 		std::cerr << "A problem occured with the prog" << e.what() << std::endl;
+	// 		return 1;
+	// 	}
 	// }
+	// else {
+	// 	// std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
+	// 	// return 3;
+	// 	throw RPN::RPNException(ERR"not all characters are allowed.");
+	// 	return 3;
+	// }
+
+
+
+	// std::cout << rpn.postfixEval(calcul) << std::endl;
+	try {
+		int result = rpn.postfixEval(calcul); //tenter la condition apres ici ? trop tard...
+		std::cout << "The result is: " << result << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << ERR << e.what() << std::endl;
+		return 1;
+	}
 
 	return 0;
 }

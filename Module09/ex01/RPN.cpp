@@ -26,19 +26,19 @@ RPN& RPN::operator=(const RPN& assign) {
 // 	}
 // }
 
-	void setNum(int num) { // verifier si ca fonctionne et tester avec dans le main
-		_countNum = num;
-	}
+	// void setNum(int num) { // verifier si ca fonctionne et tester avec dans le main
+	// 	_countNum = num;
+	// }
 
-	int getNum() {
+	int RPN::getNum() {
 		return _countNum;
 	}
 
-	void setOP(int operator) {
-		_countOP = operator;
-	}
+	// void setOP(int operator) {
+	// 	_countOP = operator;
+	// }
 
-	int getOP() {
+	int RPN::getOP() {
 		return _countOP;
 	}
 
@@ -48,12 +48,13 @@ int RPN::readNumber(char c) {
 	return int(value -'0'); //return int from character
 }
 
-bool RPN::isOperator(char c){
+int RPN::isOperator(char c){
 	if(c == '+'|| c == '-'|| c == '*'|| c == '/') {
 		_countOP++;
-		return true;//character is an operator
+		return 1;//character is an operator
 	}
-	return false;//not an operator
+	std::cout << "aux" << std
+	break;;//not an operator
 }
 
 bool RPN::isOperand(char c) {
@@ -76,8 +77,6 @@ int RPN::operation(char op) {
 	else
 		return INT_MIN; //return negative infinity
 }
-
-
 
 
 // int RPN::postfixEval(std::string postfix) {
@@ -108,7 +107,7 @@ int RPN::postfixEval(std::string postfix) {
 	std::string::iterator it;
 	for (it = postfix.begin(); it != postfix.end(); it++) {
 		// std::cout << isOperator(*it) << std::endl;
-		// if (_countOP == (_countNum + 1)) {
+		// if (_countOP == (_countNum - 1)) {
 			if (isOperator(*it) != false) {
 				// std::cout << "_countNum : " << _countNum << " | _countOP : " << _countOP << std::endl;
 				_a = _stack.top();
@@ -118,14 +117,16 @@ int RPN::postfixEval(std::string postfix) {
 				_stack.push(operation(*it));
 			}
 		else if (isOperand(*it) != false) {
-			_stack.push(readNumber(*it));
+				// if (_countOP == (_countNum - 1)) {
+					_stack.push(readNumber(*it));
+				}
 			}
-		// }
-	}
 	return _stack.top();
+		}
+	// }
 		// std::cerr << ERR << "not all characters are allowed." << std::endl;//std::cerr << ERR << "not all number are positives." << std::endl; ou throw RPNException(ERR"not all characters are allowed.");
 		// return 3;
-}
+// }
 
 // int RPN::postfixEval(std::string postfix) {
 
