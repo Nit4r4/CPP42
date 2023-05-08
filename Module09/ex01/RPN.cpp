@@ -74,7 +74,7 @@ int RPN::postfixEval(std::string postfix) {
 		}
 		else if (isOperator(*it) != false) {
 			if (_stack.empty()) {
-				throw RPN::RPNException("1 Not enough operands for operator.");
+				throw RPN::RPNException("Not enough operands for operator.");
 			}
 			_a = _stack.top();
 			if (_stack.size() < 2 || _countNum < 2)

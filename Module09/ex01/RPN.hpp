@@ -2,6 +2,7 @@
 # define RPN_HPP
 
 # include <string>
+# include <cctype>
 # include <iostream>
 # include <algorithm>
 # include <cmath>
@@ -10,6 +11,7 @@
 #include <stdlib.h>
 
 #define ERR "\e[31mError : \e[0m"
+#define RES "\033[32mRESULT : \e[0m"
 
 class	RPN {
 	private:
