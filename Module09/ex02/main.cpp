@@ -8,15 +8,15 @@ int main(int argc, char **argv) {
 	for(int i = 0; i < argc; i++) {
 		pmm.setArgNumber(i);
 		try {
-            int number = std::stoi(argv[i]);
-            vect.push_back(number);
-			if (!argv[i].isdigit())
+			int number = std::stoi(argv[i]);
+			vect.push_back(number);
+			if (!(isdigit(number)))
 				throw PmergeMe::PMMException("Not a digit");
-        } catch (const std::exception& e) {
-            std::cerr << "Argument " << argv[i] << " is not a valid number." << std::endl;
-            return 1;
-        }
-    }
+		} catch (const std::exception& e) {
+			std::cerr << "Argument " << argv[i] << " is not a valid number." << std::endl;
+			return 1;
+		}
+	}
 	
 	std::cout << "Before: " << std::endl;
 	std::cout << "After: " << std::endl;

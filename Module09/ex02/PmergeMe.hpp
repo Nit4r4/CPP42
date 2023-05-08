@@ -5,6 +5,7 @@
 # include <string>
 # include <vector>
 # include <list>
+# include <ctime>
 
 #define ERR "\e[31mError : \e[0m"
 #define RES "\033[32mRESULT : \e[0m"
@@ -23,6 +24,8 @@ class PmergeMe {
 
 		int		getArgNumber();
 		void	setArgNumber(int argNum);
+		void	sortNumberAlgo();
+		int		timeToProcessRange();
 		
 		class PMMException : public std::exception {
 			public:
