@@ -41,7 +41,7 @@ class	RPN {
 			const char* _msg;
 		};
 
-		void isAllowedNumber(std::string str);
+		//void isAllowedNumber(std::string str);
 		int readNumber(char c);
 		bool isOperator(char c);
 		bool isOperand(char c);
