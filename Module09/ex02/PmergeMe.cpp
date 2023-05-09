@@ -21,8 +21,19 @@ void	PmergeMe::setArgNumber(int argNum) {
 	_countArgNumber = argNum;
 }
 
-void	sortNumberAlgo() {
+// int	PmergeMe::getArgNumber(const int number) const {
+// 	std::vector<int>::const_iterator it = _vect.find(number);
+// 	if (it == _vect.end()) {
+// 		throw PmergeMe::PMMException("Number not found in vector");
+// 	}
+// 	return it->second;
+// }
 
+void	PmergeMe::sortNumberAlgo(int i) {
+	std::vector<std::pair<int, int> > pairs;
+	std::pair <int,int> pr;
+
+	pr = std::make_pair(_vect[i], _vect[i + 1]);
 }
 
 int		PmergeMe::timeToProcessRange() {
