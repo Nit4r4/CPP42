@@ -2,7 +2,6 @@
 # define RPN_HPP
 
 # include <string>
-# include <cctype>
 # include <iostream>
 # include <algorithm>
 # include <cmath>
@@ -11,7 +10,6 @@
 #include <stdlib.h>
 
 #define ERR "\e[31mError : \e[0m"
-#define RES "\033[32mRESULT : \e[0m"
 
 class	RPN {
 	private:
@@ -27,7 +25,10 @@ class	RPN {
 		RPN(const RPN& copy);
 		RPN& operator=(const RPN& assign);
 
+		// void setNum(int num);
 		int getNum();
+
+		// void setOP(int operator);
 		int getOP();
 
 		class RPNException : public std::exception {
@@ -41,7 +42,7 @@ class	RPN {
 			const char* _msg;
 		};
 
-		//void isAllowedNumber(std::string str);
+		void isAllowedNumber(std::string str);
 		int readNumber(char c);
 		bool isOperator(char c);
 		bool isOperand(char c);
