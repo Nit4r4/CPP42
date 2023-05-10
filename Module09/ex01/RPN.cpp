@@ -47,6 +47,7 @@ bool RPN::isOperand(char c) {
 	}
 	return false;//not an operand
 }
+
 int RPN::operation(char op) {
 	//Perform operation
 	if(op == '+')
