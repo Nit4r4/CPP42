@@ -10,6 +10,10 @@ PmergeMe::PmergeMe(const PmergeMe& copy) {
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& assign) {
 	_countArgNumber = assign._countArgNumber;
+	_vect = assign._vect;
+	_pairs = assign._pairs;
+	_sortVect = assign._sortVect;
+	_list = assign._list;
 	return *this;
 }
 
@@ -53,4 +57,56 @@ int		PmergeMe::timeToProcessRange() {
 	std::cout << "Temps écoulé: " << elapsed_time << " secondes" << std::endl;
 
 	return elapsed_time;
+}
+
+
+void	PmergeMe::swapPairsVector()
+{
+	int	rig;
+
+	for (std::vector< std::pair<int, int> >::iterator it=_pairs.begin(); it != _pairs.end(); it++)
+	{
+		if ((*it).first > (*it).second) //(*it).first it's the 1st number of the pair
+		{
+			rig = (*it).first;
+			(*it).first = (*it).second; //(*it).second it's the 2nd number of the pair
+			(*it).second = rig;
+		}
+	}
+	std::sort(_pairs.begin(), _pairs.end());
+	std::vector< std::pair<int, int> >::iterator it=_pairs.begin();// a enlever ?
+	if ((*it).first == JOKER)
+	{
+		_pairs.insert(_pairs.end(), _pairs.front());
+		_pairs.erase(_pairs.begin());
+	}
+}
+
+// void	jokerProcess() {
+// 	std::sort(_pairs.begin(), _pairs.end());
+// 	std::vector< std::pair<int, int> >::iterator it=_pairs.begin();
+// 	if ((*it).first == -1)
+// 	{
+// 		_pairs.insert(_pairs.end(), _pairs.front());
+// 		_pairs.erase(_pairs.begin());
+// 	}
+// }
+
+void	PmergeMe::upFirstOfPairsVector()
+{
+	for (std::vector< std::pair<int, int> >::iterator it=_pairs.begin(); it != _pairs.end(); it++)
+	{
+		if ((*it).first == JOKER)
+			continue;
+		_sortVect.push_back((*it).first);
+	}
+}
+
+void	PmergeMe::printResultVector()
+{
+	for (std::vector<int>::iterator it=_sortVect.begin(); it != _sortVect.end(); it++)
+	{
+		std::cout << (*it) << " ";
+	}
+	std::cout << std::endl;
 }

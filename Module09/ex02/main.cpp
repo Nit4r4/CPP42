@@ -59,11 +59,42 @@ int main(int argc, char **argv) {
 			vect.push_back(number);
 			pmm.setArgNumber(i);
 			}
-			for(int i = 1; i < argc - 1; i++) {
-				if (i % 2) {
-					pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));//pairs.push_back(std::make_pair(atoi(argv[i]),atoi(argv[i + 2])));
-					// std::cout << "paires : " << safeAtoi(argv[i]) << safeAtoi(argv[i+1]) << " ";
+			int argNbr = argc - 1;
+			for(int i = 1; i < argNbr; i++) {
+			std::cout << " ArgNbr : " << argNbr << std::endl;
+			std::cout << " i : " << i << std::endl;
+				if (argNbr % 2 == 0) {
+					if (i % 2) {
+						pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));//pairs.push_back(std::make_pair(atoi(argv[i]),atoi(argv[i + 2])));
+						//std::cout << "pas paires" << std::endl; {
+						}
+					}
+				else {
+					if (i == argNbr - 1) {
+						std::cout << "joker" << std::endl;
+						if (i % 2) {
+							std::cout << " ArgNbr moins 1 : " << argNbr - 1 << std::endl;
+							std::cout << "JOKER add" << std::endl;
+							pairs.push_back(std::make_pair(JOKER, safeAtoi(argv[i])));
+						}
+						pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));
+					}
 				}
+				// if (i % 2) {
+				// 	if (argNbr % 2 != 0)
+				// 	{
+				// 		//std::cout << "pas paires" << std::endl;
+				// 		if (i % 2 == 0 && i != argNbr) {
+				// 			std::cout << "joker" << std::endl;
+				// 			pairs.push_back(std::make_pair(JOKER, safeAtoi(argv[i])));
+				// 		}
+				// 		pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));
+				// 	}
+				// 	else 
+				// 		pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));//pairs.push_back(std::make_pair(atoi(argv[i]),atoi(argv[i + 2])));
+				// 	// std::cout << "paires : " << safeAtoi(argv[i]) << safeAtoi(argv[i+1]) << " ";
+				// }
+				
 			}
 			for(std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); it++) {
 				std::cout << (*it).first << " " << (*it).second << std::endl;
@@ -89,8 +120,9 @@ std::cout << "Before: " ;
 	}
 	std::cout << std::endl;
 
-	//  for (auto p: pairs) {
-    //     std::cout << "(" << p.first << ", " << p.second << ") ";
+std::cout << "After: " ;
+pmm.printResultVector();
+
 // std::cout << "After: " << std::endl;
 // std::cout << "Time to process a range of " << pmm.getArgNumber() << "elements with " container << " : " << 0.00031 << " us" << std::endl;
 // std::cout << "Time to process a range of " << pmm.getArgNumber() << "elements with " container << " : " << 0.00031 << " us" << std::endl;

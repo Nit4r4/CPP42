@@ -16,6 +16,7 @@ class PmergeMe {
 	private:
 		unsigned long int	_countArgNumber;
 		std::vector<int> _vect;
+		std::vector<std::pair<int, int> > _pairs;
 		std::vector<int> _sortVect;
 		std::list<int> _list;
 
@@ -28,8 +29,13 @@ class PmergeMe {
 		int		getArgNumber();
 		void	setArgNumber(int argNum);
 		//int		getArgNumber(const std::string& number) const;
+		void	swapPairsVector();
+		// void	jokerProcess();
+		void	upFirstOfPairsVector();
+		void	oddNumArg(); //impaires
 		void	sortNumberAlgo(int i);
 		int		timeToProcessRange();
+		void	printResultVector();
 		
 		class PMMException : public std::exception {
 			public:
