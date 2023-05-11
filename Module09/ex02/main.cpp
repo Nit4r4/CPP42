@@ -61,8 +61,8 @@ int main(int argc, char **argv) {
 			}
 			int argNbr = argc - 1;
 			for(int i = 1; i < argNbr; i++) {
-			std::cout << " ArgNbr : " << argNbr << std::endl;
-			std::cout << " i : " << i << std::endl;
+			// std::cout << " ArgNbr : " << argNbr << std::endl;
+			// std::cout << " i : " << i << std::endl;
 				if (argNbr % 2 == 0) {
 					if (i % 2) {
 						pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));//pairs.push_back(std::make_pair(atoi(argv[i]),atoi(argv[i + 2])));
@@ -70,14 +70,14 @@ int main(int argc, char **argv) {
 						}
 					}
 				else {
-					if (i == argNbr - 1) {
-						std::cout << "joker" << std::endl;
 						if (i % 2) {
-							std::cout << " ArgNbr moins 1 : " << argNbr - 1 << std::endl;
-							std::cout << "JOKER add" << std::endl;
-							pairs.push_back(std::make_pair(JOKER, safeAtoi(argv[i])));
+							// std::cout << " ArgNbr moins 1 : " << argNbr - 1 << std::endl;
+							// std::cout << "JOKER add" << std::endl;
+							pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));
 						}
-						pairs.push_back(std::make_pair(safeAtoi(argv[i]), safeAtoi(argv[i+1])));
+					if (i == argNbr - 1) {
+						// std::cout << "joker" << std::endl;
+						pairs.push_back(std::make_pair(JOKER, safeAtoi(argv[i + 1])));
 					}
 				}
 				// if (i % 2) {
