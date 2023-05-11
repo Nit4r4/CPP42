@@ -36,6 +36,7 @@ std::cout << "Before: " ;
 	std::cout << std::endl;
 
 std::cout << "After: " ;
+std::cout << std::endl;
 // pmm.swapPairsVector();
 pmm.sortNumberAlgo();
 // pmm.printResultVector();

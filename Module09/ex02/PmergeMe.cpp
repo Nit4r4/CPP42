@@ -49,6 +49,15 @@ void	PmergeMe::evenOddNumArgVect(int argc, char **argv) {
 	// PmergeMe::upFirstOfPairsVector();
 }
 
+
+void PmergeMe::insertionSortVect(std::vector<std::pair<int, int> >& pairs, std::vector<int>& sortVect) {
+	for (std::vector<std::pair<int, int> >::const_iterator itPair = pairs.begin(); itPair != pairs.end(); ++itPair) {
+		int num = itPair->second;
+		std::vector<int>::iterator it = std::upper_bound(sortVect.begin(), sortVect.end(), num);
+		sortVect.insert(it, num);
+	}
+}
+
 void	PmergeMe::sortNumberAlgo() {
 
 	PmergeMe::swapPairsVector();
@@ -59,9 +68,25 @@ void	PmergeMe::sortNumberAlgo() {
 		std::cout << "Vecteur _paires trier : " << it->first << it->second << std::endl;
 	}
 
+	std::cout << "\nBefore sort compare : " << std::endl;
 	for (size_t i = 0; i < _sortVect.size(); i++) {
 		std::cout << _sortVect[i] << " ";
 	}
+
+	PmergeMe::insertionSortVect(_pairs, _sortVect);
+
+	std::cout << "\nAfter sort : " << std::endl;
+	for (size_t i = 0; i < _sortVect.size(); i++) {
+		std::cout << _sortVect[i] << " ";
+	}
+// for (std::vector<std::pair<int, int> >::iterator it = _pairs.begin(); it != _pairs.end(); ++it) {
+// 	for (size_t i = 0; i < _pairs.size(); i++) {
+// 		if (std::binary_search (_sortVect.begin(), _sortVect.end(), _pairs[i])) {
+// 			std::cout << _pairs[i].first << " " << _pairs[i].second << " ";
+// 		}
+// 	}
+// }
+
 
 	// 	// Tri du vecteur _sortVect
 	// std::sort(_sortVect.begin(), _sortVect.end());
@@ -78,6 +103,8 @@ void	PmergeMe::sortNumberAlgo() {
 	// }
 	// std::cout << std::endl;
 }
+
+
 
 int		PmergeMe::timeToProcessRange() {
 
@@ -120,16 +147,6 @@ void	PmergeMe::swapPairsVector()
 		_pairs.erase(_pairs.begin());
 	}
 }
-
-// void	jokerProcess() {
-// 	std::sort(_pairs.begin(), _pairs.end());
-// 	std::vector< std::pair<int, int> >::iterator it=_pairs.begin();
-// 	if ((*it).first == -1)
-// 	{
-// 		_pairs.insert(_pairs.end(), _pairs.front());
-// 		_pairs.erase(_pairs.begin());
-// 	}
-// }
 
 void	PmergeMe::upFirstOfPairsVector() {
 	for (std::vector< std::pair<int, int> >::iterator it=_pairs.begin(); it != _pairs.end(); it++)
