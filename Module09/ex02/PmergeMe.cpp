@@ -25,19 +25,58 @@ void	PmergeMe::setArgNumber(int argNum) {
 	_countArgNumber = argNum;
 }
 
-// int	PmergeMe::getArgNumber(const int number) const {
-// 	std::vector<int>::const_iterator it = _vect.find(number);
-// 	if (it == _vect.end()) {
-// 		throw PmergeMe::PMMException("Number not found in vector");
-// 	}
-// 	return it->second;
-// }
+void	PmergeMe::evenOddNumArgVect(int argc, char **argv) {
+	int argNbr = argc - 1;
+	for(int i = 1; i < argNbr; i++) {
+		if (argNbr % 2 == 0) {
+			if (i % 2) {
+				_pairs.push_back(std::make_pair(PmergeMe::safeAtoi(argv[i]), PmergeMe::safeAtoi(argv[i+1])));//_pairs.push_back(std::make_pair(atoi(argv[i]),atoi(argv[i + 2])));
+				}
+			}
+		else {
+				if (i % 2) {
+					_pairs.push_back(std::make_pair(PmergeMe::safeAtoi(argv[i]), PmergeMe::safeAtoi(argv[i+1])));
+				}
+			if (i == argNbr - 1) {
+				_pairs.push_back(std::make_pair(JOKER, PmergeMe::safeAtoi(argv[i + 1])));
+			}
+		}
+	}
+	for(std::vector<std::pair<int, int> >::iterator it = _pairs.begin(); it != _pairs.end(); it++) {
+		std::cout << (*it).first << " " << (*it).second << std::endl;
+	}
+	// PmergeMe::swapPairsVector();
+	// PmergeMe::upFirstOfPairsVector();
+}
 
-void	PmergeMe::sortNumberAlgo(int i) {
-	std::vector<std::pair<int, int> > pairs;
-	std::pair <int,int> pr;
+void	PmergeMe::sortNumberAlgo() {
 
-	pr = std::make_pair(_vect[i], _vect[i + 1]);
+	PmergeMe::swapPairsVector();
+	PmergeMe::upFirstOfPairsVector();
+		// Affichage du résultat
+//   Parcourir le vecteur et imprimer chaque paire
+	for (std::vector<std::pair<int, int> >::iterator it = _pairs.begin(); it != _pairs.end(); ++it) {
+		std::cout << "Vecteur _paires trier : " << it->first << it->second << std::endl;
+	}
+
+	for (size_t i = 0; i < _sortVect.size(); i++) {
+		std::cout << _sortVect[i] << " ";
+	}
+
+	// 	// Tri du vecteur _sortVect
+	// std::sort(_sortVect.begin(), _sortVect.end());
+
+	// // Insérer chaque élément de _sortVect dans vec1
+	// for (size_t i = 0; i < _sortVect.size(); i++) {
+	// 	std::vector<int>::iterator it = std::lower_bound(_pairs.begin(), _pairs.end(), _sortVect[i]);
+	// 	_pairs.insert(it, _sortVect[i]);
+	// }
+
+	// // Affichage du résultat
+	// for (size_t i = 0; i < _pairs.size(); i++) {
+	// 	std::cout << _pairs[i] << " ";
+	// }
+	// std::cout << std::endl;
 }
 
 int		PmergeMe::timeToProcessRange() {
@@ -92,8 +131,7 @@ void	PmergeMe::swapPairsVector()
 // 	}
 // }
 
-void	PmergeMe::upFirstOfPairsVector()
-{
+void	PmergeMe::upFirstOfPairsVector() {
 	for (std::vector< std::pair<int, int> >::iterator it=_pairs.begin(); it != _pairs.end(); it++)
 	{
 		if ((*it).first == JOKER)
@@ -102,11 +140,11 @@ void	PmergeMe::upFirstOfPairsVector()
 	}
 }
 
-void	PmergeMe::printResultVector()
-{
+void	PmergeMe::printResultVector() {
 	for (std::vector<int>::iterator it=_sortVect.begin(); it != _sortVect.end(); it++)
 	{
 		std::cout << (*it) << " ";
 	}
 	std::cout << std::endl;
 }
+

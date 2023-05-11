@@ -32,10 +32,13 @@ class PmergeMe {
 		void	swapPairsVector();
 		// void	jokerProcess();
 		void	upFirstOfPairsVector();
-		void	oddNumArg(); //impaires
-		void	sortNumberAlgo(int i);
+		void	evenOddNumArgVect(int argc, char **argv); //impaires
+		void	sortNumberAlgo();
 		int		timeToProcessRange();
 		void	printResultVector();
+
+		/* UTILS */
+		int safeAtoi(const char* str);
 		
 		class PMMException : public std::exception {
 			public:

@@ -13,7 +13,7 @@ MAGENTA = \033[35m
 NAME	= PmergeMe
 
 
-SRCS	= main.cpp PmergeMe.cpp
+SRCS	= main.cpp PmergeMe.cpp utils.cpp
 MAIN	= main.cpp
 OBJS	= ${SRCS:.cpp=.o}
 
