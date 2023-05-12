@@ -6,9 +6,13 @@
 # include <vector>
 # include <list>
 # include <ctime>
+# include <climits> //UNSIGNED_INT_MAX
 # include <stdlib.h>
 # include <algorithm>
+# include <iterator>
 
+#define START "\033[32m"
+#define END "\e[0m"
 #define ERR "\e[31mError : \e[0m"
 #define RES "\033[32mRESULT : \e[0m"
 #define JOKER -1
@@ -16,10 +20,13 @@
 class PmergeMe {
 	private:
 		unsigned long int	_countArgNumber;
+		clock_t	_vTime;
+		clock_t	_lTime;
 		std::vector<int> _vect;
 		std::vector<std::pair<int, int> > _pairs;
 		std::vector<int> _sortVect;
-		std::list<int> _list;
+		std::list<std::pair<int, int> > _pairList;
+		std::list<int> _sortList;
 
 	public:
 		PmergeMe();
@@ -27,20 +34,28 @@ class PmergeMe {
 		PmergeMe(const PmergeMe& copy);
 		PmergeMe& operator=(const PmergeMe& assign);
 
-		int		getArgNumber();
-		void	setArgNumber(int argNum);
-		//int		getArgNumber(const std::string& number) const;
+		/* VECTOR */
 		void	swapPairsVector();
-		// void	jokerProcess();
 		void	upFirstOfPairsVector();
 		void	evenOddNumArgVect(int argc, char **argv); //impaires
 		void	insertionSortVect(std::vector<std::pair<int, int> >& pairs, std::vector<int>& sortVect);
 		void	sortNumberAlgo();
-		int		timeToProcessRange();
 		void	printResultVector();
 
+		/* LIST */
+		void	swapPairsList();
+		void	upFirstOfPairsList();
+		void	evenOddNumArgList(int argc, char **argv); //impaires
+		void	insertionSortList(std::list<std::pair<int, int> >& pairs, std::list<int>& sortVect);
+		void	sortNumberAlgoList();
+		void	printResultList();
+
 		/* UTILS */
-		int safeAtoi(const char* str);
+		clock_t	getVectTime();
+		clock_t	getListTime();
+		int		getArgNumber();
+		void	setArgNumber(int argNum);
+		int		safeAtoi(const char* str);
 
 		class PMMException : public std::exception {
 			public:
